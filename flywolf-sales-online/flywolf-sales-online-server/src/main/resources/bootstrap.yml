@@ -1,0 +1,28 @@
+spring:
+   profiles:
+      active: local
+   application:
+      name: salesbs-core
+server:
+   servlet:
+      context-path: /salesbs-core
+ebao:
+   config:
+      center:
+         enabled: true
+         url: http://configcenter-service.ebao
+         profile: salesbs-core
+---
+spring:
+   profiles: local
+ebao:
+   config:
+      center:
+         enabled: false
+---
+spring:
+   profiles: sit
+ebao:
+   config:
+      center:
+         enabled: false

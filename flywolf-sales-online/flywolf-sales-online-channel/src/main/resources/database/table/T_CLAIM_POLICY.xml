@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd                               http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<property name="uuid_type" value="RAW(16)" dbms="oracle" />
+	<property name="uuid_type" value="BINARY(16)" dbms="mysql" />
+	<property name="uuid_type" value="uniqueidentifier" dbms="mssql" />
+	<property name="pk" value="PK_CLAIM_POLICY" dbms="mssql,oracle,postgresql" />
+	<property name="pk" value="PRIMARY" dbms="mysql" />
+	<property name="current_datetime" value="sysdate" dbms="oracle" />
+	<property name="current_datetime" value="current_timestamp"
+		dbms="mssql" />
+	<property name="current_datetime" value="now()" dbms="mysql,postgresql" />
+
+	<changeSet author="generated" id="T_CLAIM_POLICY">
+		<createTable tableName="T_CLAIM_POLICY">
+			<column name="CLAIM_POLICY_ID" type="${uuid_type}">
+				<constraints nullable="false" />
+			</column>
+			<column name="EXTRA_PROPS" type="VARCHAR(200)" />
+			<column name="INSERT_TIME" type="datetime" />
+			<column name="INSERT_TIMESTAMP" type="datetime" />
+			<column name="INSERTED_BY" type="BIGINT" />
+			<column name="UPDATE_TIME" type="datetime" />
+			<column name="UPDATE_TIMESTAMP" type="datetime" />
+			<column name="UPDATED_BY" type="BIGINT" />
+			<column name="CASE_ID" type="${uuid_type}" />
+			<column name="POLICY_CODE" type="VARCHAR(50)" />
+			<column name="INSURER_CODE" type="VARCHAR(50)" />
+			<column name="PAY_AMOUNT" type="DECIMAL(18, 2)" />
+			<column name="APPLY_DATE" type="datetime" />
+			<column name="LIABILITY_STATUS" type="INT" />
+			<column name="TERMINATE_INDI" type="INT" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="generated" id="PRIMARY">
+		<addPrimaryKey columnNames="CLAIM_POLICY_ID"
+			constraintName="${pk}" tableName="T_CLAIM_POLICY" />
+	</changeSet>
+
+	<changeSet author="xin.shi" id="T_CLAIM_POLICY.NOTIFICATION_AMOUNT"
+		runOnChange="true">
+		<preConditions onFail="MARK_RAN" onFailMessage="NOTIFICATION_AMOUNT exists">
+			<not>
+				<columnExists tableName="T_CLAIM_POLICY" columnName="NOTIFICATION_AMOUNT" />
+			</not>
+		</preConditions>
+		<addColumn tableName="T_CLAIM_POLICY">
+			<column name="NOTIFICATION_AMOUNT" type="DECIMAL(18, 2)" />
+		</addColumn>
+	</changeSet>
+
+	<changeSet author="xin.shi" id="T_CLAIM_POLICY.LIABILITY_STATUS"
+		runOnChange="true">
+		<preConditions onFail="MARK_RAN" onFailMessage="LIABILITY_STATUS not exists">
+			<columnExists tableName="T_CLAIM_POLICY" columnName="LIABILITY_STATUS" />
+		</preConditions>
+		<dropColumn tableName="T_CLAIM_POLICY" columnName="LIABILITY_STATUS" />
+	</changeSet>
+
+	<changeSet author="xin.shi" id="T_CLAIM_POLICY.TERMINATE_INDI"
+		runOnChange="true">
+		<preConditions onFail="MARK_RAN" onFailMessage="TERMINATE_INDI not exists">
+			<columnExists tableName="T_CLAIM_POLICY" columnName="TERMINATE_INDI" />
+		</preConditions>
+		<dropColumn tableName="T_CLAIM_POLICY" columnName="TERMINATE_INDI" />
+	</changeSet>
+
+	<changeSet author="xin.shi" id="T_CLAIM_POLICY.DECIMAL.CHANGE"
+		runOnChange="true">
+		<modifyDataType columnName="PAY_AMOUNT" newDataType="DECIMAL(18, 6)"
+			tableName="T_CLAIM_POLICY" />
+		<modifyDataType columnName="NOTIFICATION_AMOUNT"
+			newDataType="DECIMAL(18, 6)" tableName="T_CLAIM_POLICY" />
+	</changeSet>
+	
+	<changeSet author="xin.shi" id="T_CLAIM_POLICY.CHANGE_ID"
+		runOnChange="true">
+		<preConditions onFail="MARK_RAN"
+			onFailMessage="CHANGE_ID exists">
+			<not>
+				<columnExists tableName="T_CLAIM_POLICY"
+					columnName="CHANGE_ID" />
+			</not>
+		</preConditions>
+		<addColumn tableName="T_CLAIM_POLICY">
+			<column name="CHANGE_ID" type="BIGINT" />
+		</addColumn>
+	</changeSet>
+
+	<changeSet author="xin.shi"
+		id="T_CLAIM_POLICY.POLICY_CHANGE_ID" runOnChange="true">
+		<preConditions onFail="MARK_RAN"
+			onFailMessage="POLICY_CHANGE_ID exists">
+			<not>
+				<columnExists tableName="T_CLAIM_POLICY"
+					columnName="POLICY_CHANGE_ID" />
+			</not>
+		</preConditions>
+		<addColumn tableName="T_CLAIM_POLICY">
+			<column name="POLICY_CHANGE_ID" type="BIGINT" />
+		</addColumn>
+	</changeSet>
+  
+    <changeSet author="generated" id="createIndex-claim-policy-caseId">
+      <createIndex indexName="idx_claim_policy_caseId" tableName="T_CLAIM_POLICY">
+        <column name="CASE_ID" type="${uuid_type}" />
+      </createIndex>
+    </changeSet>
+    
+  <changeSet author="xin.shi"
+    id="T_CLAIM_POLICY.POLICY_FROZEN_INDI" runOnChange="true">
+    <preConditions onFail="MARK_RAN"
+      onFailMessage="POLICY_FROZEN_INDI exists">
+      <not>
+        <columnExists tableName="T_CLAIM_POLICY"
+          columnName="POLICY_FROZEN_INDI" />
+      </not>
+    </preConditions>
+    <addColumn tableName="T_CLAIM_POLICY">
+      <column name="POLICY_FROZEN_INDI" type="CHAR(1)" />
+    </addColumn>
+  </changeSet>
+</databaseChangeLog>

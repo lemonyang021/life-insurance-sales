@@ -1,0 +1,183 @@
+banner:
+  charset: UTF-8
+batch:
+  callback-service-context: /phenix
+  callback-service-host: http://phenix.ebaoli
+  callback-urls:
+    createBatchNodeActivity: /rest/bathStatus/batchNodeActivity
+    createBatchNodeRun: /rest/bathStatus/batchNodeRun
+    getBatchJobRun: /rest/bathStatus/batchNodeRun/{nodeId}
+    loadBatchJob: /rest/bathJobs/{jobId}
+    updateBatchNodeRun: /rest/bathStatus/batchNodeRun/refresh
+    updateRecordResult: /rest/bathStatus/jobRunRecord
+  default-tenant-id: eBao
+  insurer-code: eBao
+  insurer-id: 1
+cfg:
+  provider: mo
+  provider.mo.context: /magneto
+data:
+  provider: mo
+  provider.mo.context: /magneto
+datasource:
+  trans:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    liquibase:
+      change-log: classpath:/db/upgrade-db.xml
+      enabled: true
+entryid:
+  marknegtive: false
+eureka:
+  client:
+    enabled: false
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    healthCheckUrlPath: /actuator/health
+    prefer-ip-address: true
+    statusPageUrlPath: /actuator/info
+hazelcast:
+  members: 127.0.0.1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+        timeout:
+          enabled: false
+li:
+  management:
+    trace:
+      include: REQUEST,RESPONSE
+limo:
+  url: http://ls.ebaoli
+limobs:
+  es:
+    indexes: ebaoli_bs_policy
+management:
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+  trace:
+    include: REQUEST_HEADERS,PARAMETERS,QUERY_STRING,RESPONSE_HEADERS,ERRORS
+mo:
+  ebao:
+    password: eBao123!
+    tenantUserId: 9227716
+    user: EBAOAPI
+  eureka:
+    enabled: false
+opentracing:
+  jaeger:
+    const-sampler:
+      decision: true
+    enable-b3-propagation: true
+    enabled: true
+    log-spans: true
+    udp-sender:
+      host: jaeger-agent.default
+      port: 6831
+  spring:
+    cloud:
+      jdbc:
+        withActiveSpanOnly: true
+pa:
+  provider: mo
+  provider.mo.context: /magneto
+pa-job:
+  service-context: ${data.provider.mo.context}
+  service-host: ${data.provider.mo.url}
+  service-urls:
+    fetch: /rest/policyDueDate/fetch
+    getPolicy: /rest/policy/{policyId}
+    updatePolicy: /rest/policy
+    updatePolicyDueDate: /rest/policyDueDate
+pd:
+  context: /pd
+  url: http://pd.ebaoli
+prospectservice:
+  ribbon:
+    listOfServers: http://prospect.ebaoli
+ribbon:
+  eureka:
+    enabled: false
+server:
+  compression:
+    enabled: true
+    mime-types: application/json
+    min-response-size: 10240
+  port: 8091
+  tomcat:
+    accesslog:
+      buffered: true
+      directory: logs/
+      enabled: true
+      file-date-format: .yyyy-MM-dd
+      pattern: '%t %a %h %A [%{applicationName}r] [%{pathPattern}r] [%U] [%m] [%{startTime}r]
+        [%{endTime}r] %s %b [] [%{traceId}r] [%{tenantCode}r] %D'
+      prefix: localhost_access_log
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+      suffix: .txt
+    basedir: /Users/flywolf/app/
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-interceptors: StatementCache;SlowQueryReport
+    primary:
+      max-active: 200
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    default-property-inclusion: non_null
+    deserialization:
+      fail-on-unknown-properties: false
+    parser:
+      allow-comments: true
+    serialization:
+      fail-on-empty-beans: false
+      write-dates-as-timestamps: false
+      write-dates-with-zone-id: true
+    time-zone: GMT+8
+  jmx:
+    default-domain: ${spring.application.name}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        ejb:
+          interceptor: com.ebao.li.framework.entity.AuditDataInterceptor
+    show-sql: true
+  liquibase:
+    change-log: classpath:/db/upgrade-db.xml
+    enabled: true
+  messages:
+    encoding: UTF-8
+  security:
+    user:
+      name: admin
+      password: eBao123!
+springfox:
+  documentation:
+    swagger:
+      v2:
+        host: hkclmbs.ebaoli
+        scheme: http
+        httpCode: '{"200":"请求成功","401":"没有认证，请重新登录"}'
+tenantservice:
+  ribbon:
+    listOfServers: http://tenant.ebaoli
