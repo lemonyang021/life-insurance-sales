@@ -177,7 +177,12 @@ springfox:
       v2:
         host: hkclmbs.ebaoli
         scheme: http
-        httpCode: '{"200":"请求成功","401":"没有认证，请重新登录"}'
+        httpcode:
+          "{
+             '200': '请求成功',
+             '401': '没有认证，请重新登录',
+             '403': '没有访问权限，请联系管理人员'
+           }"
 tenantservice:
   ribbon:
     listOfServers: http://tenant.ebaoli
