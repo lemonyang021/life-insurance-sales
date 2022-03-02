@@ -1,10 +1,7 @@
 package com.flywolf.li.sales.online.channel.service.impl;
 
-import com.flywolf.li.framework.web.ServiceHeader;
-import com.ebao.li.flywolf.sales.online.channel.helper.ChannelConvertHelper;
-import com.flywolf.li.sales.online.channel.repository.TAgentCateRepository;
-import com.flywolf.li.sales.online.channel.service.ChannelService;
 import com.flywolf.li.sales.online.channel.dto.CreateChannelRequest;
+import com.flywolf.li.sales.online.channel.service.ChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -13,10 +10,11 @@ import org.springframework.stereotype.Service;
 public class ChannelServiceImpl implements ChannelService {
     @Autowired
     private ApplicationEventPublisher publisher;
+
     @Autowired
-    private TAgentCateRepository agentCateRepository;
+    //private TAgentCateRepository agentCateRepository;
     @Override
-    public void create(ServiceHeader serviceHeader, String insurerCode, CreateChannelRequest request) {
-        agentCateRepository.save(ChannelConvertHelper.fromChannelDTO(request));
+    public void create(String insurerCode, CreateChannelRequest request) {
+        //agentCateRepository.save(ChannelConvertHelper.fromChannelDTO(request));
     }
 }

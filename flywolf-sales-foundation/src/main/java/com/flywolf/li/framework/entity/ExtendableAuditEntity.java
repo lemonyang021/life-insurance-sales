@@ -1,6 +1,5 @@
 package com.flywolf.li.framework.entity;
 
-import com.ebao.li.flywolf.sales.dto.generic.IExtendableDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

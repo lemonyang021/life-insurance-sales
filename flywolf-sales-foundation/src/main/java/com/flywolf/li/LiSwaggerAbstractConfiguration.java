@@ -17,8 +17,8 @@ import java.util.Map;
 @Data
 public class LiSwaggerAbstractConfiguration implements LiSwagger2Configuration {
     private String title = "APIs of Sales";
-    private String termsOfServiceUrl = "https://docs.ebaocloud.com/docs-ebaocloud-li-docs-api/";
-    private Contact contact = new Contact("eBaoTech", "", "");
+    private String termsOfServiceUrl = "https://docs.flywolf.com";
+    private Contact contact = new Contact("flywolf", "", "");
     private String version = "1.0";
 
     @Value("${springfox.documentation.swagger.v2.scheme:http}")

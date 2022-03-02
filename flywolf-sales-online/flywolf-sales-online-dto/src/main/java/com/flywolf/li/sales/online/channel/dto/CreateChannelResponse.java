@@ -1,7 +1,9 @@
 package com.flywolf.li.sales.online.channel.dto;
 
-import com.flywolf.li.sales.online.generic.dto.GenericLiResponse;
+import com.flywolf.li.framework.dto.GenericLiResponse;
+import lombok.Data;
 
+@Data
 public class CreateChannelResponse extends GenericLiResponse {
 
   /**

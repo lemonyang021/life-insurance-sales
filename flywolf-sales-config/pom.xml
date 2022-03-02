@@ -17,6 +17,7 @@
         <module>flywolf-sales-config-compensation</module>
         <module>flywolf-sales-config-global</module>
         <module>flywolf-sales-config-license</module>
+        <module>flywolf-sales-config-dto</module>
         <module>flywolf-sales-config-server</module>
     </modules>
 

@@ -14,10 +14,10 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class ChannelConfigSwaggerConfiguration extends LiSwaggerAbstractConfiguration {
 
     public Docket claimRestApi(Tag newTag, String basePackage) {
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo()).globalResponseMessage(RequestMethod.GET, globalResponseMessageList)
-                .globalResponseMessage(RequestMethod.POST, responseMessageList)
-                .protocols(Sets.newHashSet(scheme)).groupName("claim").tags(new Tag("Claim", "")).select()
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo()).globalResponseMessage(RequestMethod.GET, super.getResponseMessageList())
+                .globalResponseMessage(RequestMethod.POST, super.getResponseMessageList())
+                .protocols(Sets.newHashSet(super.getScheme())).groupName("sales").tags(new Tag("channel", "")).select()
                 .apis(RequestHandlerSelectors.basePackage(basePackage))
-                .paths(PathSelectors.regex("/claim.*")).build();
+                .paths(PathSelectors.regex("/channel.*")).build();
     }
 }

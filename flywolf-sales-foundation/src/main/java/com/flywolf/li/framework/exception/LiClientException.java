@@ -1,7 +1,7 @@
 package com.flywolf.li.framework.exception;
 
 
-import com.ebao.li.flywolf.sales.dto.generic.GenericLiResponse;
+import com.flywolf.li.framework.dto.GenericLiResponse;
 
 public class LiClientException extends GenericLiException {
   /**

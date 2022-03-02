@@ -1,4 +1,0 @@
-org.springframework.context.ApplicationListener=\
-ConfigCenterApplicationListener
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-ConfigcenterAutoConfiguration

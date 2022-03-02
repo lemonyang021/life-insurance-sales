@@ -1,6 +1,8 @@
 package com.flywolf.li.framework.exception;
 
 
+import com.flywolf.li.framework.dto.GenericLiResponse;
+
 public class LiServerException extends GenericLiException {
   /**
    * 
