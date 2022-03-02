@@ -9,4 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>flywolf-sales-config-compensation</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+    </dependencies>
 </project>

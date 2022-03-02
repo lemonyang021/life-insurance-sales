@@ -1,24 +1,6 @@
 banner:
   charset: UTF-8
-batch:
-  callback-service-context: /phenix
-  callback-service-host: http://phenix.ebaoli
-  callback-urls:
-    createBatchNodeActivity: /rest/bathStatus/batchNodeActivity
-    createBatchNodeRun: /rest/bathStatus/batchNodeRun
-    getBatchJobRun: /rest/bathStatus/batchNodeRun/{nodeId}
-    loadBatchJob: /rest/bathJobs/{jobId}
-    updateBatchNodeRun: /rest/bathStatus/batchNodeRun/refresh
-    updateRecordResult: /rest/bathStatus/jobRunRecord
-  default-tenant-id: eBao
-  insurer-code: eBao
-  insurer-id: 1
-cfg:
-  provider: mo
-  provider.mo.context: /magneto
-data:
-  provider: mo
-  provider.mo.context: /magneto
+
 datasource:
   trans:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -177,7 +159,7 @@ springfox:
       v2:
         host: hkclmbs.ebaoli
         scheme: http
-        httpcode:
+        responsecode:
           "{
              '200': '请求成功',
              '401': '没有认证，请重新登录',

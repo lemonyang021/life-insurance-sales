@@ -1,4 +1,4 @@
-package com.flywolf.li.sales.config.server;
+package com.flywolf.li.sales.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.metrics.cache.CacheMetricsAutoConfiguration;
