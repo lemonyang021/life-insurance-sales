@@ -9,15 +9,7 @@ datasource:
       enabled: true
 entryid:
   marknegtive: false
-eureka:
-  client:
-    enabled: false
-    fetch-registry: true
-    register-with-eureka: true
-  instance:
-    healthCheckUrlPath: /actuator/health
-    prefer-ip-address: true
-    statusPageUrlPath: /actuator/info
+
 hazelcast:
   members: 127.0.0.1
 hystrix:
@@ -28,15 +20,7 @@ hystrix:
           strategy: SEMAPHORE
         timeout:
           enabled: false
-li:
-  management:
-    trace:
-      include: REQUEST,RESPONSE
-limo:
-  url: http://ls.ebaoli
-limobs:
-  es:
-    indexes: ebaoli_bs_policy
+
 management:
   endpoint:
     restart:
@@ -45,13 +29,7 @@ management:
       enabled: true
   trace:
     include: REQUEST_HEADERS,PARAMETERS,QUERY_STRING,RESPONSE_HEADERS,ERRORS
-mo:
-  ebao:
-    password: eBao123!
-    tenantUserId: 9227716
-    user: EBAOAPI
-  eureka:
-    enabled: false
+
 opentracing:
   jaeger:
     const-sampler:
@@ -66,26 +44,11 @@ opentracing:
     cloud:
       jdbc:
         withActiveSpanOnly: true
-pa:
-  provider: mo
-  provider.mo.context: /magneto
-pa-job:
-  service-context: ${data.provider.mo.context}
-  service-host: ${data.provider.mo.url}
-  service-urls:
-    fetch: /rest/policyDueDate/fetch
-    getPolicy: /rest/policy/{policyId}
-    updatePolicy: /rest/policy
-    updatePolicyDueDate: /rest/policyDueDate
-pd:
-  context: /pd
-  url: http://pd.ebaoli
-prospectservice:
-  ribbon:
-    listOfServers: http://prospect.ebaoli
+
 ribbon:
   eureka:
     enabled: false
+
 server:
   compression:
     enabled: true
@@ -105,8 +68,9 @@ server:
       request-attributes-enabled: false
       rotate: true
       suffix: .txt
-    basedir: /Users/flywolf/app/
+    basedir: D:\IdeaProjects\Tomcat
     uri-encoding: UTF-8
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -151,13 +115,13 @@ spring:
     encoding: UTF-8
   security:
     user:
-      name: admin
-      password: eBao123!
+      name: root
+      password: 123456
 springfox:
   documentation:
     swagger:
       v2:
-        host: hkclmbs.ebaoli
+        host: localhost:8091
         scheme: http
         responsecode:
           "{
@@ -165,6 +129,3 @@ springfox:
              '401': '没有认证，请重新登录',
              '403': '没有访问权限，请联系管理人员'
            }"
-tenantservice:
-  ribbon:
-    listOfServers: http://tenant.ebaoli

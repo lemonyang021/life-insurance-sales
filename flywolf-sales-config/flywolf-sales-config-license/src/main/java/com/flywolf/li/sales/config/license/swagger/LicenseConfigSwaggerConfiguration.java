@@ -1,4 +1,4 @@
-package com.flywolf.li.sales.config.channel.swagger;
+package com.flywolf.li.sales.config.license.swagger;
 
 import com.flywolf.li.LiSwaggerAbstractConfiguration;
 import com.google.common.collect.Sets;
@@ -12,16 +12,16 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-public class ChannelConfigSwaggerConfiguration extends LiSwaggerAbstractConfiguration {
+public class LicenseConfigSwaggerConfiguration extends LiSwaggerAbstractConfiguration {
 
     @Bean
-    public Docket channelDocket() {
-        String basePackage = "com.flywolf.li.sales.config.channel.controller";
-        Tag tag = new Tag("channel", "");
+    public Docket licenseDocket() {
+        String basePackage = "com.flywolf.li.sales.config.license.controller";
+        Tag tag = new Tag("license", "");
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo()).globalResponseMessage(RequestMethod.GET, super.getResponseMessageList())
                 .globalResponseMessage(RequestMethod.POST, super.getResponseMessageList())
-                .protocols(Sets.newHashSet(super.getScheme())).groupName("Channel").tags(tag).select()
+                .protocols(Sets.newHashSet(super.getScheme())).groupName("lemon").tags(tag).select()
                 .apis(RequestHandlerSelectors.basePackage(basePackage))
-                .paths(PathSelectors.regex("/channel.*")).build();
+                .paths(PathSelectors.regex("/license.*")).build();
     }
 }

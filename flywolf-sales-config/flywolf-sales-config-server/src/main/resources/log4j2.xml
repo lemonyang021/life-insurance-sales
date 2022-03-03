@@ -34,7 +34,7 @@
       <AppenderRef ref="limoRuntimeAppender" />
     </Root>
 
-    <AsyncLogger name="com.ebao" level="info" additivity="false">
+    <AsyncLogger name="com.flywolf" level="info" additivity="false">
       <AppenderRef ref="limoRuntimeAppender" />
       <AppenderRef ref="Console" />
     </AsyncLogger>
