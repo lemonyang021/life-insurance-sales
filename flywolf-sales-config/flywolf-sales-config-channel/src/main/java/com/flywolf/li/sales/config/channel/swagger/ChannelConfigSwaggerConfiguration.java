@@ -18,8 +18,10 @@ public class ChannelConfigSwaggerConfiguration extends LiSwaggerAbstractConfigur
     public Docket channelDocket() {
         String basePackage = "com.flywolf.li.sales.config.channel.controller";
         Tag tag = new Tag("channel", "");
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo()).globalResponseMessage(RequestMethod.GET, super.getResponseMessageList())
-                .globalResponseMessage(RequestMethod.POST, super.getResponseMessageList())
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo())
+                .globalOperationParameters(super.getGlobalOperationParameters())
+                .globalResponseMessage(RequestMethod.GET, super.getResponseMessage())
+                .globalResponseMessage(RequestMethod.POST, super.getResponseMessage())
                 .protocols(Sets.newHashSet(super.getScheme())).groupName("Channel").tags(tag).select()
                 .apis(RequestHandlerSelectors.basePackage(basePackage))
                 .paths(PathSelectors.regex("/channel.*")).build();

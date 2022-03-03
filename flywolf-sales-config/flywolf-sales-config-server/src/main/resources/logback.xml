@@ -10,7 +10,7 @@
     <property name="maxHistory" value="30"/><!--保留最近X天的日志-->
     <property name="totalSizeCap" value="1GB"/> <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
     <property name="pattern" value="%d [%thread] %-5level -[%file:%line]- %msg%n"/> <!--日志输出格式-->
-    <property name="fileNamePattern" value=".%d{yyyy-MM-dd}.%i.log"/><!--日志文件后缀-->
+    <property name="fileNamePattern" value=".%d{yyyy-MM-dd}.%i.log"/><!--归档日志文件后缀-->
     <property name="charset" value="UTF-8"/><!--日志字符集-->
 
     <!-- appender类似于一个日志格式化模板，描述了日志的格式、规则、输出形式等 -->

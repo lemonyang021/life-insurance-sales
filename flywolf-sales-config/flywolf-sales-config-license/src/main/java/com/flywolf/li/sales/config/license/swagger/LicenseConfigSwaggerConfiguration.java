@@ -18,8 +18,10 @@ public class LicenseConfigSwaggerConfiguration extends LiSwaggerAbstractConfigur
     public Docket licenseDocket() {
         String basePackage = "com.flywolf.li.sales.config.license.controller";
         Tag tag = new Tag("license", "");
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo()).globalResponseMessage(RequestMethod.GET, super.getResponseMessageList())
-                .globalResponseMessage(RequestMethod.POST, super.getResponseMessageList())
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo())
+                .globalOperationParameters(super.getGlobalOperationParameters())
+                .globalResponseMessage(RequestMethod.GET, super.getResponseMessage())
+                .globalResponseMessage(RequestMethod.POST, super.getResponseMessage())
                 .protocols(Sets.newHashSet(super.getScheme())).groupName("lemon").tags(tag).select()
                 .apis(RequestHandlerSelectors.basePackage(basePackage))
                 .paths(PathSelectors.regex("/license.*")).build();
