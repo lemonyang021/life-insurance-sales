@@ -7,11 +7,15 @@ datasource:
     liquibase:
       change-log: classpath:/db/upgrade-db.xml
       enabled: true
+
 entryid:
   marknegtive: false
 
 hazelcast:
   members: 127.0.0.1
+logging:
+  config: classpath:logback.xml
+
 hystrix:
   command:
     default:
@@ -117,6 +121,8 @@ spring:
     user:
       name: root
       password: 123456
+
+
 springfox:
   documentation:
     swagger:

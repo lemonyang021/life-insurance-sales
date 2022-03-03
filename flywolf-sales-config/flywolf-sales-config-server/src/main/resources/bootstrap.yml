@@ -2,16 +2,11 @@ spring:
    profiles:
       active: local
    application:
-      name: salesbs-config
+      name: sales-config
+
 server:
    servlet:
-      context-path: /salesbs-config
-ebao:
-   config:
-      center:
-         enabled: true
-         url: http://configcenter-service.ebao
-         profile: salesbs-config
+      context-path: /sales-config
 ---
 spring:
    profiles: local
