@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @CrossOrigin
 @RestController
-@Api(tags = "1111")
+@Api(tags = "channel")
 @RequestMapping(value = "/channel")
 public class ChannelConfigController {
 
@@ -19,7 +19,7 @@ public class ChannelConfigController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ApiOperation(value = "注册新渠道",
-            notes = "2222", httpMethod = "POST",
+            notes = "注册新渠道", httpMethod = "POST",
             response = RegisterChannelResponse.class)
     public RegisterChannelResponse register(
             @RequestBody RegisterChannelRequest request, HttpServletRequest httpRequest,
