@@ -15,7 +15,7 @@ hazelcast:
 
 spring:
   datasource:
-    jdbc-url: jdbc:mysql://localhost:3306/salesbs-config?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    jdbc-url: jdbc:mysql://localhost:3306/agencybs?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     password: 123456
     username: root
   jpa:

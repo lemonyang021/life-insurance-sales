@@ -24,6 +24,7 @@ public class ChannelConfigController {
     public RegisterChannelResponse register(
             @RequestBody RegisterChannelRequest request, HttpServletRequest httpRequest,
             HttpServletResponse httpResponse) {
+        int i=1/0;
         logger.info("hello lemon {}", request);
         return null;
     }
