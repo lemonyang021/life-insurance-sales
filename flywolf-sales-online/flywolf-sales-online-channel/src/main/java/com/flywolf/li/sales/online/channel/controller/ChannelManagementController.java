@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 
 
 @CrossOrigin
@@ -51,7 +51,7 @@ public class ChannelManagementController {
     /*@ApiImplicitParams(value = {@ApiImplicitParam(name = ServiceInterceptor.TenantCodeKey,
             paramType = "header", dataType = "string", required = true)})*/
     public CreateChannelResponse create(@PathVariable("insurerCode") @ApiParam(value = "Insurer code") String insurerCode,
-                                        @RequestBody @Valid CreateChannelRequest request, HttpServletRequest httpRequest,
+                                        @RequestBody @Validated CreateChannelRequest request, HttpServletRequest httpRequest,
                                         HttpServletResponse httpResponse, BindingResult result) {
         //.traceRequest(request);
 

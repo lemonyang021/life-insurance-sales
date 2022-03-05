@@ -4,6 +4,7 @@ import com.flywolf.li.sales.config.channel.dto.RegisterChannelRequest;
 import com.flywolf.li.sales.config.channel.dto.RegisterChannelResponse;
 import io.swagger.annotations.*;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,10 +23,11 @@ public class ChannelConfigController {
             notes = "注册新渠道", httpMethod = "POST",
             response = RegisterChannelResponse.class)
     public RegisterChannelResponse register(
-            @RequestBody RegisterChannelRequest request, HttpServletRequest httpRequest,
+            @RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest,
             HttpServletResponse httpResponse) {
-        int i=1/0;
         logger.info("hello lemon {}", request);
-        return null;
+        RegisterChannelResponse response=new RegisterChannelResponse();
+
+        return response;
     }
 }
