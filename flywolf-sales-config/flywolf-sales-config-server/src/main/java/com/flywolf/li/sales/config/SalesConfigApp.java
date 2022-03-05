@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@ComponentScan(value = "com.flywolf.li")
+@ComponentScan("com.flywolf.li")
 @SpringBootApplication(exclude = CacheMetricsAutoConfiguration.class)
 @EnableDiscoveryClient
 @EnableHystrix//开启熔断降级机制

@@ -10,8 +10,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.UUID;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "t_channel")
 public class Channel extends ExtendableAuditEntity implements Serializable {

@@ -1,18 +1,6 @@
 banner:
   charset: UTF-8
 
-datasource:
-  trans:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    liquibase:
-      change-log: classpath:/db/upgrade-db.xml
-      enabled: true
-
-entryid:
-  marknegtive: false
-
-hazelcast:
-  members: 127.0.0.1
 logging:
   config: classpath:logback.xml
 
@@ -107,10 +95,6 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        ejb:
-          interceptor: com.ebao.li.framework.entity.AuditDataInterceptor
     show-sql: true
   liquibase:
     change-log: classpath:/db/upgrade-db.xml

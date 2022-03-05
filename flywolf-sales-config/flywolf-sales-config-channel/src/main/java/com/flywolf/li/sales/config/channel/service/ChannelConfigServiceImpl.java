@@ -7,19 +7,20 @@ import com.flywolf.li.sales.config.channel.repository.ChannelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.UUID;
 
 @Service
 public class ChannelConfigServiceImpl implements ChannelConfigService {
 
-   /* @Autowired
-    ChannelRepository channelRepository;*/
+   @Resource
+    ChannelRepository channelRepository;
 
     @Override
     public boolean register(RegisterChannelRequest request) {
-        /*Channel channel = ConvertUtil.convert(request, Channel.class);
+        Channel channel = ConvertUtil.convert(request, Channel.class);
         channel.setId(UUID.randomUUID());
-        channelRepository.save(channel);*/
+        channelRepository.save(channel);
         return true;
     }
 }
