@@ -3,14 +3,13 @@ package com.flywolf.li;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.ParameterBuilder;
-import springfox.documentation.builders.ResponseMessageBuilder;
-import springfox.documentation.schema.ModelRef;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
-import springfox.documentation.service.Parameter;
-import springfox.documentation.service.ResponseMessage;
+import springfox.documentation.builders.RequestParameterBuilder;
+import springfox.documentation.builders.ResponseBuilder;
+import springfox.documentation.schema.ScalarType;
+import springfox.documentation.service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,31 +28,46 @@ public class LiSwaggerAbstractConfiguration implements LiSwagger2Configuration {
     @Value("#{${springfox.documentation.swagger.v2.responsecode}}")
     private Map<Integer, String> responseCode;
 
-    //设置全局响应状态码
+    //生成通用响应信息
     @Cacheable("LiSwaggerResponseHttpCode")
-    public List<ResponseMessage> getResponseMessage() {
-        List<ResponseMessage> responseMessageList = new ArrayList<>();
+    public List<Response> getGlobalResonseMessage() {
+        List<Response> responseList = new ArrayList<>();
         for (Map.Entry<Integer, String> m : responseCode.entrySet()) {
-            responseMessageList.add(new ResponseMessageBuilder().code(m.getKey()).message(m.getValue()).build());
+            responseList.add(new ResponseBuilder().code(m.getKey().toString()).description(m.getValue()).build());
         }
-        return responseMessageList;
+        return responseList;
     }
 
-    //设置全局请求参数
+
+    //生成全局通用参数
     @Cacheable("GlobalOperationParameters")
-    public List<Parameter> getGlobalOperationParameters() {
-        List<Parameter> pars = new ArrayList<>();
-        ParameterBuilder parameterBuilder = new ParameterBuilder();
-        // header query cookie
-        parameterBuilder.name("X-Auth-Token").description("token").modelRef(new ModelRef("string")).parameterType("header").required(false);
-        pars.add(parameterBuilder.build());
-        parameterBuilder.name("X-userid").description("用户id").modelRef(new ModelRef("int")).parameterType("query").required(false);
-        pars.add(parameterBuilder.build());
-        parameterBuilder.name("X-name").description("用户名").modelRef(new ModelRef("string")).parameterType("cookie").required(false);
-        pars.add(parameterBuilder.build());
-        return pars;
+    public List<RequestParameter> getGlobalRequestParameters() {
+        List<RequestParameter> parameters = new ArrayList<>();
+        parameters.add(new RequestParameterBuilder()
+                .name("X-Auth-Token")
+                .description("token")
+                .required(true)
+                .in(ParameterType.HEADER)
+                .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)))
+                .build());
+        parameters.add(new RequestParameterBuilder()
+                .name("X-userid")
+                .description("用户id")
+                .required(true)
+                .in(ParameterType.QUERY)
+                .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)))
+                .build());
+        parameters.add(new RequestParameterBuilder()
+                .name("X-name")
+                .description("用户名")
+                .required(true)
+                .in(ParameterType.COOKIE)
+                .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)))
+                .build());
+        return parameters;
     }
 
+    //生成接口信息，包括标题、联系人等
     @Cacheable("ApiInfo")
     public ApiInfo getApiInfo() {
         return new ApiInfoBuilder().title(this.getTitle())

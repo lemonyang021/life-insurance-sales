@@ -1,15 +1,54 @@
+banner:
+  charset: UTF-8
+
+logging:
+  config: classpath:logback.xml
+
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/sales_config?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    password: 123456
+    url: jdbc:mysql://localhost:3306/sales_config?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    show-sql: true
-  redis:
-    host: 172.25.16.24
-    password: eAf012m@31
-    port: 6379
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-interceptors: StatementCache;SlowQueryReport
+    primary:
+      max-active: 200
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 60000
+      validationQuery: SELECT 1
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    default-property-inclusion: non_null
+    deserialization:
+      fail-on-unknown-properties: false
+    parser:
+      allow-comments: true
+    serialization:
+      fail-on-empty-beans: false
+      write-dates-as-timestamps: false
+      write-dates-with-zone-id: true
+    time-zone: GMT+8
+    jmx:
+      default-domain: ${spring.application.name}
+    jpa:
+      database-platform: org.hibernate.dialect.MySQL5Dialect
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+    liquibase:
+      change-log: classpath:/db/upgrade-db.xml
+      enabled: true
+    messages:
+      encoding: UTF-8
+    security:
+      user:
+        name: root
+        password: 123456
 
 springfox:
   documentation:

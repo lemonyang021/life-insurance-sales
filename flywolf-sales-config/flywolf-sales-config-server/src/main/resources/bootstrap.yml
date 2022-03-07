@@ -10,14 +10,3 @@ server:
 ---
 spring:
    profiles: local
-ebao:
-   config:
-      center:
-         enabled: false
----
-spring:
-   profiles: sit
-ebao:
-   config:
-      center:
-         enabled: false
