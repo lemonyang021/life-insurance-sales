@@ -1,25 +1,20 @@
 package com.flywolf.li;
 
+import io.swagger.v3.oas.models.ExternalDocumentation;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.RequestParameterBuilder;
-import springfox.documentation.builders.ResponseBuilder;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.service.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Data
-public class LiSwaggerAbstractConfiguration implements LiSwagger2Configuration {
+public class LiSwaggerAbstractConfiguration {
     private String title = "APIs of Sales";
     private String termsOfServiceUrl = "https://docs.flywolf.com";
-    private Contact contact = new Contact("flywolf", "", "");
+    //private Contact contact = new Contact("flywolf", "", "");
     private String version = "1.0";
 
     @Value("${springfox.documentation.swagger.v2.scheme:http}")
@@ -27,7 +22,7 @@ public class LiSwaggerAbstractConfiguration implements LiSwagger2Configuration {
 
     @Value("#{${springfox.documentation.swagger.v2.responsecode}}")
     private Map<Integer, String> responseCode;
-
+/*
     //生成通用响应信息
     @Cacheable("LiSwaggerResponseHttpCode")
     public List<Response> getGlobalResonseMessage() {
@@ -36,10 +31,10 @@ public class LiSwaggerAbstractConfiguration implements LiSwagger2Configuration {
             responseList.add(new ResponseBuilder().code(m.getKey().toString()).description(m.getValue()).build());
         }
         return responseList;
-    }
+    }*/
 
 
-    //生成全局通用参数
+    /*//生成全局通用参数
     @Cacheable("GlobalOperationParameters")
     public List<RequestParameter> getGlobalRequestParameters() {
         List<RequestParameter> parameters = new ArrayList<>();
@@ -65,14 +60,19 @@ public class LiSwaggerAbstractConfiguration implements LiSwagger2Configuration {
                 .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)))
                 .build());
         return parameters;
-    }
+    }*/
 
     //生成接口信息，包括标题、联系人等
     @Cacheable("ApiInfo")
-    public ApiInfo getApiInfo() {
-        return new ApiInfoBuilder().title(this.getTitle())
-                .termsOfServiceUrl(this.getTermsOfServiceUrl()).contact(this.getContact())
-                .version(this.getVersion()).build();
+    public OpenAPI getApiInfo() {
+        return new OpenAPI()
+                .info(new Info().title("SpringShop API")
+                        .description("Spring shop sample application")
+                        .version("v0.0.1")
+                        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
+                .externalDocs(new ExternalDocumentation()
+                        .description("SpringShop Wiki Documentation")
+                        .url("https://springshop.wiki.github.org/docs"));
     }
 
 }

@@ -1,7 +1,7 @@
 package com.flywolf.li.framework.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -21,27 +21,27 @@ import java.util.Map;
 public abstract class ExtendableAuditEntity {
     // Who created
     @Column(name = "INSERTED_BY")
-    @ApiModelProperty(hidden = true)
+    @Schema(hidden = true)
     protected Long insertedBy;
     // Who updated at latest
     @Column(name = "UPDATED_BY")
-    @ApiModelProperty(hidden = true)
+    @Schema(hidden = true)
     protected Long updatedBy;
     // When created at system time
     @Column(name = "INSERT_TIMESTAMP")
-    @ApiModelProperty(hidden = true)
+    @Schema(hidden = true)
     protected Date insertTimestamp;
     // When updated at latest at system time
     @Column(name = "UPDATE_TIMESTAMP")
-    @ApiModelProperty(hidden = true)
+    @Schema(hidden = true)
     protected Date updateTimestamp;
     // When created at application time
     @Column(name = "INSERT_TIME")
-    @ApiModelProperty(hidden = true)
+    @Schema(hidden = true)
     protected Date insertTime;
     // When updated at latest at application time
     @Column(name = "UPDATE_TIME")
-    @ApiModelProperty(hidden = true)
+    @Schema(hidden = true)
     protected Date updateTime;
 
     //以下属性不存DB,只是保存在内存对象中

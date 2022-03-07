@@ -1,33 +1,33 @@
 package com.flywolf.li.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Date;
 
 public interface LiResponse extends ClientServiceResponse {
 
-  @ApiModelProperty(value = "外部交易流水号", position = -100)
+  @Schema(title = "外部交易流水号")
   String getClientRequestId();
 
-  @ApiModelProperty(value = "外部请求时间", position = -99)
+  @Schema(title = "外部请求时间")
   Date getClientRequestTime();
 
-  @ApiModelProperty(value = "请求结果<br>1 - 业务成功<br>0 - 业务失败<br>-1 - 程序异常", example="1", position = -98)
+  @Schema(title = "请求结果<br>1 - 业务成功<br>0 - 业务失败<br>-1 - 程序异常", example="1")
   int getResult();
 
-  @ApiModelProperty(value = "业务失败原因描述列表节点", position = -97)
+  @Schema(title = "业务失败原因描述列表节点")
   GenericValidationResult[] getMessages();
 
-  @ApiModelProperty(value = "异常信息", position = -96)
+  @Schema(title = "异常信息")
   String[] getExceptions();
 
   @JsonIgnore
-  @ApiModelProperty(hidden = true)
+  @Schema(hidden = true)
   Date getServiceReqTime();
 
   @JsonIgnore
-  @ApiModelProperty(hidden = true)
+  @Schema(hidden = true)
   Date getServiceResTime();
 
 }

@@ -1,19 +1,19 @@
 package com.flywolf.li.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Date;
 
 public interface LiRequest extends IExtendableDTO {
 
-    @ApiModelProperty(value = "外部交易流水号", position = -100)
+    @Schema(title = "外部交易流水号")
     String getClientRequestId();
 
-    @ApiModelProperty(value = "外部请求时间", position = -99)
+    @Schema(title = "外部请求时间")
     Date getClientRequestTime();
 
     @JsonIgnore
-    @ApiModelProperty(hidden = true, position = -98)
+    @Schema(hidden = true)
     Date getServiceReqTime();
 }

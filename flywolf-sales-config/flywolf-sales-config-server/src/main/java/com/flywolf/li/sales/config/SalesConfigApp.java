@@ -8,8 +8,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
-import springfox.documentation.oas.annotations.EnableOpenApi;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @ComponentScan("com.flywolf.li")
 @SpringBootApplication(exclude = CacheMetricsAutoConfiguration.class)
@@ -17,7 +15,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableHystrix//开启熔断降级机制
 @EnableFeignClients
 @EnableCaching//开启缓存机制
-@EnableOpenApi//开始swagger
 public class SalesConfigApp {
 
     public static void main(String[] args) {

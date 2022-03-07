@@ -1,17 +1,19 @@
 package com.flywolf.li.framework.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Map;
 
 public interface IExtendableDTO extends java.io.Serializable{
 
-    @ApiModelProperty(value = "扩展信息，Map类型，Key/Value都是字符型", position = 999)
+    @Schema(title = "扩展信息，Map类型，Key/Value都是字符型")
     Map<String, String> getExtendedProps();
 
     void setExtendedProps(Map<String, String> extendedProps);
 
-    @ApiModelProperty(hidden = true)
+    @Schema(hidden = true)
     String getSerializedExtensionObj();
 
     void setSerializedExtensionObj(String serializedExtensionObj);

@@ -50,6 +50,12 @@ spring:
         name: root
         password: 123456
 
+springdoc:
+  api-docs:
+    enabled: true #默认为true开启
+
+
+
 springfox:
   documentation:
     swagger:
