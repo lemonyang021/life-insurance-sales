@@ -1,5 +1,6 @@
 package com.flywolf.li.sales.config.channel.controller;
 
+import com.flywolf.li.framework.dto.ClientServiceResponse;
 import com.flywolf.li.sales.config.channel.dto.RegisterChannelRequest;
 import com.flywolf.li.sales.config.channel.dto.RegisterChannelResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 @CrossOrigin
 @RestController
@@ -22,12 +24,14 @@ public class ChannelConfigController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @Operation(summary = "注册新渠道",
             description = "注册新渠道", method = "POST")
-    public @ResponseBody RegisterChannelResponse register(
+    public RegisterChannelResponse register(
             @RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest,
             HttpServletResponse httpResponse) {
         logger.info("hello lemon {}", request);
         RegisterChannelResponse response=new RegisterChannelResponse();
-
+        response.setClientRequestId("1111");
+        response.setServiceReqTime(new Date());
+        response.setResult(ClientServiceResponse.ServiceResultCode.SUCCEEDED);
         return response;
     }
 }

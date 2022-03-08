@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class RegisterChannelRequest extends GenericLiRequest {
 
+    private static final long serialVersionUID = -5499559626737713119L;
     @Schema(title = "渠道名称", required = true)
     @NotNull(message = "渠道名称不能为空")
     @NotBlank(message = "渠道名称不能为空")

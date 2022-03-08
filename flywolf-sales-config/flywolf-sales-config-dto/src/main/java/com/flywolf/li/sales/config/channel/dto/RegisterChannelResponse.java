@@ -6,7 +6,7 @@ import lombok.Data;
 
 
 @Data
-@Schema(title = "渠道创建结果")
+@Schema(name = "渠道创建结果",description = "渠道创建结果对象")
 public class RegisterChannelResponse extends GenericLiResponse {
 
 }
