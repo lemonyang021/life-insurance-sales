@@ -23,7 +23,9 @@ public class RequestAopLogComponent implements RequestBodyAdvice {
 
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-        log.info("请求参数====>{}", JSONUtil.toJsonStr(inputMessage));
+        //log.info("请求参数====>{}", JsonUtil.objectToString(inputMessage));
+        ;
+        log.info("请求参数====>{}", JSONUtil.toJsonPrettyStr(inputMessage));
         return inputMessage;
     }
 
@@ -31,12 +33,15 @@ public class RequestAopLogComponent implements RequestBodyAdvice {
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
         RequestMapping requestMapping = parameter.getMethodAnnotation(RequestMapping.class);
         log.info("请求地址====>{}", StringUtils.arrayToDelimitedString(requestMapping.value(), ","));
-        log.info("请求参数====>{}", JSONUtil.toJsonStr(body));
+
+        log.info("请求参数====>{}", JSONUtil.toJsonPrettyStr(body));
+
         return body;
     }
 
     @Override
     public Object handleEmptyBody(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
+        log.info("请求body====>{}",body);
         return body;
     }
 }

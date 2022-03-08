@@ -5,7 +5,7 @@ import com.flywolf.li.sales.config.channel.dto.RegisterChannelRequest;
 import com.flywolf.li.sales.config.channel.dto.RegisterChannelResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,20 +17,19 @@ import java.util.Date;
 @RestController
 @Tag(name = "渠道配置",description = "操作描述")
 @RequestMapping(value = "/channel")
+@Slf4j
 public class ChannelConfigController {
-
-    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ChannelConfigController.class);
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @Operation(summary = "注册新渠道",
             description = "注册新渠道", method = "POST")
-    public RegisterChannelResponse register(
+    public @ResponseBody RegisterChannelResponse register(
             @RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest,
             HttpServletResponse httpResponse) {
-        logger.info("hello lemon {}", request);
+        log.info("hello lemon {},{}", request,request.getClientRequestTime());
         RegisterChannelResponse response=new RegisterChannelResponse();
         response.setClientRequestId("1111");
-        response.setServiceReqTime(new Date());
+        response.setServiceResTime(new Date());
         response.setResult(ClientServiceResponse.ServiceResultCode.SUCCEEDED);
         return response;
     }

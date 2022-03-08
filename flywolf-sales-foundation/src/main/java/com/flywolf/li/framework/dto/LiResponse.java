@@ -26,8 +26,7 @@ public interface LiResponse extends ClientServiceResponse {
   @Schema(hidden = true)
   Date getServiceReqTime();
 
-  @JsonIgnore
-  @Schema(hidden = true)
+  @Schema(title="服务器响应时间")
   Date getServiceResTime();
 
 }
