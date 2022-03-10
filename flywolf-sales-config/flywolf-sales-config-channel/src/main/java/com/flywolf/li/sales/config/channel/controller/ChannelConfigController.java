@@ -21,13 +21,10 @@ import java.util.Date;
 public class ChannelConfigController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    @Operation(summary = "注册新渠道",
-            description = "注册新渠道", method = "POST")
+    @Operation(summary = "注册新渠道", description = "注册新渠道")
     public @ResponseBody
-    RegisterChannelResponse register(
-            @RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest,
-            HttpServletResponse httpResponse) {
-        log.info("hello lemon {},{}", request, request.getClientRequestTime());
+    RegisterChannelResponse register(@RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+        log.info("hello lemon {},{}"+ClientServiceResponse.ServiceResultCode.SUCCEEDED, request, request.getClientRequestTime());
         RegisterChannelResponse response = new RegisterChannelResponse();
         response.setClientRequestId("1111");
         response.setServiceResTime(new Date());

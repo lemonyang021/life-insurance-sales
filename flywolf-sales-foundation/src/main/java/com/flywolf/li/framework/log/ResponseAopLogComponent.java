@@ -1,5 +1,6 @@
 package com.flywolf.li.framework.log;
 
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
@@ -21,7 +22,9 @@ public class ResponseAopLogComponent implements ResponseBodyAdvice {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
                                   Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-            log.info("请求返回====>{}", JSONUtil.toJsonStr(body) );
+        JSONObject json = JSONUtil.parseObj(body, false, true);
+        json.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        log.info("请求返回====>{}", json.toStringPretty());
         return body;
     }
 }

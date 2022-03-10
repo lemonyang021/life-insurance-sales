@@ -30,6 +30,7 @@ public class ChannelConfigSwaggerConfiguration extends LiSwaggerAbstractConfigur
         return GroupedOpenApi.builder()
                 .group("channel")
                 .pathsToMatch("/channel/**")
+                .addOperationCustomizer(customGlobalHeaders())
                 .build();
     }
 
@@ -53,12 +54,12 @@ public class ChannelConfigSwaggerConfiguration extends LiSwaggerAbstractConfigur
         return (Operation operation, HandlerMethod handlerMethod) -> {
 
             Parameter authorization = new Parameter().in(ParameterIn.HEADER.toString()).name("Authorization")
-                    .description("Authorization details JWT token")
+                    .description("Authorization details JWT token").example("xxx_token")
                     .schema(new StringSchema()).required(true);
 
             Parameter applicationId = new Parameter().in(ParameterIn.HEADER.toString()).schema(new StringSchema())
-                    .name("Application-Id").description("Originating application or client using the service")
-                    .required(false);
+                    .name("Application-Id").description("Originating application or client using the service").example("P05")
+                    .required(true);
 
             operation.addParametersItem(authorization);
             operation.addParametersItem(applicationId);

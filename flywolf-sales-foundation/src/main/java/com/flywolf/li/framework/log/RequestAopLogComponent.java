@@ -1,5 +1,6 @@
 package com.flywolf.li.framework.log;
 
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
@@ -23,9 +24,9 @@ public class RequestAopLogComponent implements RequestBodyAdvice {
 
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-        //log.info("请求参数====>{}", JsonUtil.objectToString(inputMessage));
-        ;
-        log.info("请求参数====>{}", JSONUtil.toJsonPrettyStr(inputMessage));
+        JSONObject json = JSONUtil.parseObj(inputMessage, false, true);
+        json.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        log.info("请求参数====>{}", json.toStringPretty());
         return inputMessage;
     }
 
@@ -33,15 +34,14 @@ public class RequestAopLogComponent implements RequestBodyAdvice {
     public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
         RequestMapping requestMapping = parameter.getMethodAnnotation(RequestMapping.class);
         log.info("请求地址====>{}", StringUtils.arrayToDelimitedString(requestMapping.value(), ","));
-
-        log.info("请求参数====>{}", JSONUtil.toJsonPrettyStr(body));
-
+        JSONObject json = JSONUtil.parseObj(body, false, true);
+        json.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        log.info("请求参数====>{}", json.toStringPretty());
         return body;
     }
 
     @Override
     public Object handleEmptyBody(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
-        log.info("请求body====>{}",body);
         return body;
     }
 }
