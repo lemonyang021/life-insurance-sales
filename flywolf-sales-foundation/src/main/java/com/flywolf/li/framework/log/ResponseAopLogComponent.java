@@ -22,9 +22,19 @@ public class ResponseAopLogComponent implements ResponseBodyAdvice {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
                                   Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        JSONObject json = JSONUtil.parseObj(body, false, true);
-        json.setDateFormat("yyyy-MM-dd HH:mm:ss");
-        log.info("请求返回====>{}", json.toStringPretty());
+
+        if (null == body) {
+            return null;
+        } else {
+            if (body instanceof String && JSONUtil.isJson(body.toString())) {
+                JSONObject json = JSONUtil.parseObj(body, false, true);
+                json.setDateFormat("yyyy-MM-dd HH:mm:ss");
+                log.info("请求返回====>{}", json.toStringPretty());
+            } else {
+                log.info("请求返回====>{}", body);
+            }
+        }
+
         return body;
     }
 }

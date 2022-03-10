@@ -17,16 +17,6 @@ public class ChannelConfigSwaggerConfiguration extends LiSwaggerAbstractConfigur
 
     @Bean
     public GroupedOpenApi channelDocket() {
-        /*String basePackage = "com.flywolf.li.sales.config.channel.controller";
-        Tag tag = new Tag("channel", "");
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(super.getApiInfo())
-                .globalRequestParameters(super.getGlobalRequestParameters())
-                .globalResponses(HttpMethod.GET, super.getGlobalResonseMessage())
-                .globalResponses(HttpMethod.POST, super.getGlobalResonseMessage())
-                .groupName("channel").tags(tag).select()
-                .apis(RequestHandlerSelectors.basePackage(basePackage))
-                .paths(PathSelectors.regex("/channel.*")).build();*/
-
         return GroupedOpenApi.builder()
                 .group("channel")
                 .pathsToMatch("/channel/**")
