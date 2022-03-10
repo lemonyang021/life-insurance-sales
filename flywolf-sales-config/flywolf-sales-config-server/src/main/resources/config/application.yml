@@ -39,6 +39,8 @@ server:
     mime-types: application/json
     min-response-size: 10240
   port: 8091
+  servlet:
+    context-path: /sales-config
   tomcat:
     accesslog:
       buffered: true

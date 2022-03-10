@@ -15,7 +15,7 @@ import java.util.Date;
 
 @CrossOrigin
 @RestController
-@Tag(name = "渠道配置",description = "操作描述")
+@Tag(name = "渠道配置", description = "操作描述")
 @RequestMapping(value = "/channel")
 @Slf4j
 public class ChannelConfigController {
@@ -23,11 +23,12 @@ public class ChannelConfigController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @Operation(summary = "注册新渠道",
             description = "注册新渠道", method = "POST")
-    public @ResponseBody RegisterChannelResponse register(
+    public @ResponseBody
+    RegisterChannelResponse register(
             @RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest,
             HttpServletResponse httpResponse) {
-        log.info("hello lemon {},{}", request,request.getClientRequestTime());
-        RegisterChannelResponse response=new RegisterChannelResponse();
+        log.info("hello lemon {},{}", request, request.getClientRequestTime());
+        RegisterChannelResponse response = new RegisterChannelResponse();
         response.setClientRequestId("1111");
         response.setServiceResTime(new Date());
         response.setResult(ClientServiceResponse.ServiceResultCode.SUCCEEDED);

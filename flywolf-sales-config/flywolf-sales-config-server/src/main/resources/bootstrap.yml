@@ -3,10 +3,3 @@ spring:
       active: local
    application:
       name: sales-config
-
-server:
-   servlet:
-      context-path: /sales-config
----
-spring:
-   profiles: local
