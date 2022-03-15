@@ -1,6 +1,5 @@
 package com.flywolf.li.sales.config.channel.swagger;
 
-import com.flywolf.li.LiSwaggerAbstractConfiguration;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.StringSchema;
@@ -13,7 +12,7 @@ import org.springframework.web.method.HandlerMethod;
 
 
 @Configuration
-public class ChannelConfigSwaggerConfiguration extends LiSwaggerAbstractConfiguration {
+public class ChannelConfigSwaggerConfiguration {
 
     @Bean
     public GroupedOpenApi channelDocket() {
