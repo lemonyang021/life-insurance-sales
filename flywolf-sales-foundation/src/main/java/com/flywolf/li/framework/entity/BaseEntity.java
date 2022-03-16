@@ -15,7 +15,7 @@ import java.util.Date;
 @MappedSuperclass
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public abstract class ExtendableAuditEntity {
+public abstract class BaseEntity {
     // Who created
     @Column(name = "INSERTED_BY")
     @Schema(hidden = true)
@@ -24,14 +24,6 @@ public abstract class ExtendableAuditEntity {
     @Column(name = "UPDATED_BY")
     @Schema(hidden = true)
     protected Long updatedBy;
-    // When created at system time
-    @Column(name = "INSERT_TIMESTAMP")
-    @Schema(hidden = true)
-    protected Date insertTimestamp;
-    // When updated at latest at system time
-    @Column(name = "UPDATE_TIMESTAMP")
-    @Schema(hidden = true)
-    protected Date updateTimestamp;
     // When created at application time
     @Column(name = "INSERT_TIME")
     @Schema(hidden = true)

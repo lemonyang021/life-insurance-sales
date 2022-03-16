@@ -1,6 +1,6 @@
-package com.flywolf.li.sales.config.channel.data;
+package com.flywolf.li.sales.config.channel.entity;
 
-import com.flywolf.li.framework.entity.ExtendableAuditEntity;
+import com.flywolf.li.framework.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.DynamicInsert;
@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Table(name = "t_channel")
 @DynamicUpdate
 @DynamicInsert
-public class Channel extends ExtendableAuditEntity implements Serializable {
+public class Channel extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -2270158413421004264L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Channel extends ExtendableAuditEntity implements Serializable {
     @Column(name = "channel_code", nullable = false)
     private String channelCode;
 
-    @Column(name = "channel_category",nullable = false)
-    private String channelCategory;
+    @Column(name = "category_code",nullable = false)
+    private String categoryCode;
 
 }

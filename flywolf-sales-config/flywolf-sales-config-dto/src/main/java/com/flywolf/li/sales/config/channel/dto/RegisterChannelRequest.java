@@ -24,5 +24,5 @@ public class RegisterChannelRequest extends Request {
     @NotNull(message = "渠道种类不能为空")
     @NotBlank(message = "渠道种类不能为空")
     @Schema(title = "渠道种类", required = true)
-    private String channelCategory;
+    private String categoryCode;
 }

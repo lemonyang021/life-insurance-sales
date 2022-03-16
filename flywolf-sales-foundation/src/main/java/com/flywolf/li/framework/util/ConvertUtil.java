@@ -1,6 +1,6 @@
 package com.flywolf.li.framework.util;
 
-import com.flywolf.li.framework.entity.ExtendableAuditEntity;
+import com.flywolf.li.framework.entity.BaseEntity;
 import lombok.experimental.UtilityClass;
 import org.springframework.beans.BeanUtils;
 
@@ -15,23 +15,20 @@ public class ConvertUtil {
      * 初始插入
      *
      */
-    public static void initInsertEntity(ExtendableAuditEntity baseEntity) {
+    public static void initInsertEntity(BaseEntity baseEntity) {
         baseEntity.setInsertedBy(401L);
         baseEntity.setUpdatedBy(401L);
         baseEntity.setInsertTime(new Date());
         baseEntity.setUpdateTime(new Date());
-        baseEntity.setInsertTimestamp(new Date());
-        baseEntity.setUpdateTimestamp(new Date());
     }
 
     /**
      * 初始更新
      *
      */
-    public static void initUpdateEntity(ExtendableAuditEntity baseEntity) {
+    public static void initUpdateEntity(BaseEntity baseEntity) {
         baseEntity.setUpdatedBy(401L);
         baseEntity.setUpdateTime(new Date());
-        baseEntity.setUpdateTimestamp(new Date());
     }
 
     public static <T, V> T convert(V v, Class<T> classT) {

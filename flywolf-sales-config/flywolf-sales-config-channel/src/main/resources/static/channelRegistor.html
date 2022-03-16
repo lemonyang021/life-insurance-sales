@@ -30,7 +30,7 @@
                         <div class='layui-form-item'>
                             <label class="layui-form-label">渠道种类：</label>
                             <div class="layui-input-block">
-                                <input type="text" name="channelCategory" class="layui-input"/>
+                                <input type="text" name="categoryCode" class="layui-input"/>
                             </div>
                         </div>
                     </form>
@@ -49,22 +49,5 @@
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
 <script type="text/javascript" src="./js/public.js"></script>
-<script language="JavaScript">
-    //表单提交
-    function submit() {
-        //调用自己的保存业务
-        let channelRegisterForm = $("#channelRegisterForm").serializeObject();
-        url = "http://localhost:8091/sales-config/channel/register";
-        var resultInfo = commonAjax("POST",url,false,channelRegisterForm);
-alert()
-        console.log(channelRegisterForm);
-    }
-
-    //表单回显（可编辑与不可编辑）
-    function showForm() {
-        //回显基础数据
-        $("#channelRegisterForm").form({channelName:"代理人",channelCode:"18",channelCategory:"组织"});
-    }
-
-</script>
+<script type="text/javascript" src="./js/channelRegister.js"></script>
 </html>
