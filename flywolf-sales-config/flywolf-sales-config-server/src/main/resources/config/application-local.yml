@@ -67,9 +67,3 @@ springfox:
       v2:
         host: localhost:8091
         scheme: http
-        responsecode:
-          "{
-            '200': '请求成功',
-            '401': '没有认证，请重新登录',
-            '403': '没有访问权限，请联系管理人员'
-            }"
