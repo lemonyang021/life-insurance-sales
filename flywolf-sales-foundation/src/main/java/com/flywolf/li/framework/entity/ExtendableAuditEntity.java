@@ -6,10 +6,7 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 审计对象，所有数据库实体类都包含的公共字段
@@ -43,12 +40,5 @@ public abstract class ExtendableAuditEntity {
     @Column(name = "UPDATE_TIME")
     @Schema(hidden = true)
     protected Date updateTime;
-
-    //以下属性不存DB,只是保存在内存对象中
-    @Transient
-    private Map<String, String> extraProps = new HashMap<String, String>();
-
-    @Transient
-    private String serializedExtensionObj;
 
 }
