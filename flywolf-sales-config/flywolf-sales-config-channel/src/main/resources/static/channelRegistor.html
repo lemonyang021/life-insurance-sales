@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>渠道组册</title>
@@ -36,7 +36,7 @@
                     </form>
 
                     <div class="layui-form-button" align="center">
-                        <button id="register" class="layui-btn layui-btn-primary" onclick="submit1()">注册</button>
+                        <button id="register" class="layui-btn layui-btn-primary" onclick="submit()">注册</button>
                         <button id="reset" type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
@@ -48,38 +48,23 @@
 <!-- 在线引入 -->
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
-<script>
-    /**
-     * 拓展表单对象：用于将对象序列化为JSON对象
-     */
-    $.fn.serializeObject = function () {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function () {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
-
-
+<script type="text/javascript" src="./js/public.js"></script>
+<script language="JavaScript">
     //表单提交
-    function submit1() {
+    function submit() {
         //调用自己的保存业务
         let channelRegisterForm = $("#channelRegisterForm").serializeObject();
+        url = "http://localhost:8091/sales-config/channel/register";
+        var resultInfo = commonAjax("POST",url,false,channelRegisterForm);
+
         console.log(channelRegisterForm);
     }
 
     //表单回显（可编辑与不可编辑）
-    function showForm1() {
+    function showForm() {
         //回显基础数据
         $("#channelRegisterForm").form({channelName:"代理人",channelCode:"18",channelCategory:"组织"});
     }
+
 </script>
 </html>
