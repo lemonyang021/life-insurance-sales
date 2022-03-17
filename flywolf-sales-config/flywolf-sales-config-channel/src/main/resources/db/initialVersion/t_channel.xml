@@ -10,13 +10,13 @@
             <column autoIncrement="true" name="id" type="BIGINT(19)">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PRIMARY"/>
             </column>
-            <column name="category_code" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
             <column name="channel_code" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="channel_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_code" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="insert_time" type="datetime"/>
