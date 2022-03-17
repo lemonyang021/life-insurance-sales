@@ -10,13 +10,13 @@
             <column name="category_code" type="VARCHAR(200)">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="PRIMARY"/>
             </column>
+            <column name="category_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
             <column name="insert_time" type="datetime"/>
             <column name="inserted_by" type="BIGINT(19)"/>
             <column name="update_time" type="datetime"/>
             <column name="updated_by" type="BIGINT(19)"/>
-            <column name="category_name" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
     </changeSet>
 
