@@ -1,6 +1,7 @@
 package com.flywolf.li.sales.config.channel.controller;
 
 import com.flywolf.li.framework.dto.Result;
+import com.flywolf.li.framework.dto.ResultCodeEnum;
 import com.flywolf.li.sales.config.channel.dto.RegisterChannelRequest;
 import com.flywolf.li.sales.config.channel.service.ChannelConfigService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,7 +28,7 @@ public class ChannelConfigController {
     @Operation(summary = "注册新渠道", description = "注册新渠道")
     public @ResponseBody
     Result<Long> register(@RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
-        //log.info("hello lemon {},{}" + ResultCodeEnum.SUCCESS, request, request.getReqTime());
+        log.info("hello lemon {},{}" + ResultCodeEnum.SUCCESS, request, request.getReqTime());
         return Result.success(service.register(request));
     }
 }

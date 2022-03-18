@@ -53,6 +53,8 @@ spring:
     enabled: true
   messages:
     encoding: UTF-8
+  thymeleaf:
+    mode: LEGACYHTML5
 
 
 springdoc:

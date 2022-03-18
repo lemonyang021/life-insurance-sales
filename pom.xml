@@ -17,7 +17,7 @@
         <swagger-ui.version>3.0.0</swagger-ui.version>
         <swagger.version>3.0.0</swagger.version>
         <commons-validator.version>1.6</commons-validator.version>
-        <liquibase.version>3.8.9</liquibase.version>
+        <liquibase.version>4.9.0</liquibase.version>
         <hazelcast.version>3.11.2</hazelcast.version>
         <hazelcast.kubernetes.version>1.5.2</hazelcast.kubernetes.version>
         <limo.starter.version>1.0.34</limo.starter.version>
