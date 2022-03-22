@@ -11,6 +11,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 @ComponentScan("com.flywolf.li")
 @SpringBootApplication(exclude = CacheMetricsAutoConfiguration.class)
@@ -21,9 +25,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SalesConfigApp {
 
-    @RequestMapping(value="/login",method = RequestMethod.GET)
-    public String login(){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
         return "login";
+    }
+
+    @RequestMapping(value = "/loginvalidate", method = RequestMethod.POST)
+    public String loginvalidate(@RequestParam("username") String username, @RequestParam("password") String pwd, HttpSession httpSession) {
+        if (username == null)
+            return "login";
+        if ("admin".equals(pwd)) {
+            httpSession.setAttribute("username", username);
+            return "index";
+        } else
+            return "fail";
+    }
+
+    @RequestMapping(value="/logout",method = RequestMethod.GET)
+    public String logout(HttpSession httpSession){
+        httpSession.removeAttribute("username");
+        return "login";
+    }
+
+    @RequestMapping(value="/currentuser",method = RequestMethod.GET)
+    @ResponseBody
+    public MSG currentuser(HttpSession httpSession){
+        String userid=(String) httpSession.getAttribute("username");
+        return new MSG(userid);
     }
 
     public static void main(String[] args) {

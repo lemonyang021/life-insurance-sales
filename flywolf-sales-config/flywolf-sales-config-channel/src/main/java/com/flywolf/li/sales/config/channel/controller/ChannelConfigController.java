@@ -29,6 +29,8 @@ public class ChannelConfigController {
     public @ResponseBody
     Result<Long> register(@RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
         log.info("hello lemon {},{}" + ResultCodeEnum.SUCCESS, request, request.getReqTime());
-        return Result.success(service.register(request));
+        Long channelId = service.register(request);
+        service.update(request);
+        return Result.success(channelId);
     }
 }

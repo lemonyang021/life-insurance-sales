@@ -13,26 +13,6 @@ hystrix:
         timeout:
           enabled: false
 
-management:
-  endpoint:
-    restart:
-      enabled: true
-    shutdown:
-      enabled: true
-  trace:
-    include: REQUEST_HEADERS,PARAMETERS,QUERY_STRING,RESPONSE_HEADERS,ERRORS
-
-opentracing:
-  jaeger:
-    const-sampler:
-      decision: true
-    enable-b3-propagation: true
-    enabled: true
-    log-spans: true
-    udp-sender:
-      host: jaeger-agent.default
-      port: 6831
-
 server:
   compression:
     enabled: true
@@ -41,18 +21,3 @@ server:
   port: 8091
   servlet:
     context-path: /sales-config
-  tomcat:
-    accesslog:
-      buffered: true
-      directory: logs/
-      enabled: true
-      file-date-format: .yyyy-MM-dd
-      pattern: '%t %a %h %A [%{applicationName}r] [%{pathPattern}r] [%U] [%m] [%{startTime}r]
-        [%{endTime}r] %s %b [] [%{traceId}r] [%{tenantCode}r] %D'
-      prefix: localhost_access_log
-      rename-on-rotate: false
-      request-attributes-enabled: false
-      rotate: true
-      suffix: .txt
-    basedir: D:\IdeaProjects\Tomcat
-    uri-encoding: UTF-8
