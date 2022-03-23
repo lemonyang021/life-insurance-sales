@@ -55,6 +55,16 @@ spring:
     encoding: UTF-8
   thymeleaf:
     mode: LEGACYHTML5
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  zipkin:
+    discovery-client-enabled: false
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+    probability: 1.0   #  表示采样比例百分之百
 
 springdoc:
   api-docs:

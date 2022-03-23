@@ -1,5 +1,29 @@
 spring:
    profiles:
-      active: local
+      active: local #指定开发环境
+   cloud:
+      nacos:
+         config:
+            server-addr: localhost:8848 #nacos服务地址
+            namespace: local
+            #group: sales-config
+            #file-extension: yaml
+            ext-config[0]:
+               data-id: spring-config.yaml
+               group: sales-config
+               refresh: true
+            ext-config[1]:
+               data-id: springdoc-config.yaml
+               group: sales-config
+               refresh: true
+            ext-config[2]:
+               data-id: server-config.yaml
+               group: sales-config
+               refresh: true
+            ext-config[3]:
+               data-id: logback-config.yaml
+               group: sales-config
+               refresh: true
+
    application:
       name: sales-config
