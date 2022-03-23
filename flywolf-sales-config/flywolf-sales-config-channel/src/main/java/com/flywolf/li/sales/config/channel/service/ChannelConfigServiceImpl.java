@@ -5,7 +5,6 @@ import com.flywolf.li.sales.config.channel.dto.RegisterChannelRequest;
 import com.flywolf.li.sales.config.channel.entity.Channel;
 import com.flywolf.li.sales.config.channel.repository.ChannelRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -16,7 +15,6 @@ public class ChannelConfigServiceImpl implements ChannelConfigService {
     ChannelRepository channelRepository;
 
     @Override
-
     public Long register(RegisterChannelRequest request) {
         Channel channel = ConvertUtil.convert(request, Channel.class);
         ConvertUtil.initInsertEntity(channel);
@@ -25,7 +23,6 @@ public class ChannelConfigServiceImpl implements ChannelConfigService {
     }
 
     @Override
-    @Transactional
     public void update(RegisterChannelRequest request) {
         Channel channel = ConvertUtil.convert(request, Channel.class);
         ConvertUtil.initInsertEntity(channel);

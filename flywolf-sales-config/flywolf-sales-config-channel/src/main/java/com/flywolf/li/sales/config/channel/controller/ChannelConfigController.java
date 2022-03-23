@@ -11,8 +11,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @CrossOrigin
 @RestController
@@ -27,7 +25,7 @@ public class ChannelConfigController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @Operation(summary = "注册新渠道", description = "注册新渠道")
     public @ResponseBody
-    Result<Long> register(@RequestBody @Validated RegisterChannelRequest request, HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+    Result<Long> register(@RequestBody @Validated RegisterChannelRequest request) {
         log.info("hello lemon {},{}" + ResultCodeEnum.SUCCESS, request, request.getReqTime());
         Long channelId = service.register(request);
         service.update(request);

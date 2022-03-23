@@ -1,7 +1,6 @@
 package com.flywolf.li.sales.config;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.autoconfigure.metrics.cache.CacheMetricsAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 @ComponentScan("com.flywolf.li")
-@SpringBootApplication(exclude = CacheMetricsAutoConfiguration.class)
+@SpringBootApplication
 @EnableDiscoveryClient
 @EnableHystrix//开启熔断降级机制
 @EnableFeignClients
@@ -41,16 +40,16 @@ public class SalesConfigApp {
             return "fail";
     }
 
-    @RequestMapping(value="/logout",method = RequestMethod.GET)
-    public String logout(HttpSession httpSession){
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpSession httpSession) {
         httpSession.removeAttribute("username");
         return "login";
     }
 
-    @RequestMapping(value="/currentuser",method = RequestMethod.GET)
+    @RequestMapping(value = "/currentuser", method = RequestMethod.GET)
     @ResponseBody
-    public MSG currentuser(HttpSession httpSession){
-        String userid=(String) httpSession.getAttribute("username");
+    public MSG currentuser(HttpSession httpSession) {
+        String userid = (String) httpSession.getAttribute("username");
         return new MSG(userid);
     }
 
