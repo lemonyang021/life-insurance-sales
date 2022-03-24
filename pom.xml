@@ -14,7 +14,7 @@
         <magneto.version>1.0-SNAPSHOT</magneto.version>
         <spring-boot.version>2.6.3</spring-boot.version>
         <spring-cloud.version>2021.0.1</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
         <swagger-ui.version>3.0.0</swagger-ui.version>
         <swagger.version>3.0.0</swagger.version>
         <commons-validator.version>1.6</commons-validator.version>
