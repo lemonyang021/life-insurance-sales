@@ -13,13 +13,13 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>flywolf-channel-model</module>
-        <module>flywolf-channel-common</module>
-        <module>flywolf-channel-server</module>
-        <module>flywolf-channel-controller</module>
-        <module>flywolf-channel-service</module>
-        <module>flywolf-channel-remote</module>
-        <module>flywolf-channel-dto</module>
+        <module>model</module>
+        <module>common</module>
+        <module>server</module>
+        <module>controller</module>
+        <module>service</module>
+        <module>remote</module>
+        <module>dto</module>
     </modules>
 
     <properties>

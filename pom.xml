@@ -124,11 +124,11 @@
         </plugins>
     </build>-->
     <modules>
-        <module>flywolf-foundation</module>
-        <module>flywolf-channel-management</module>
-        <module>flywolf-license-management</module>
-        <module>flywolf-producer-management</module>
-        <module>flywolf-compensation-management</module>
-        <module>flywolf-dou-management</module>
+        <module>foundation</module>
+        <module>channel-management</module>
+        <module>license-management</module>
+        <module>producer-management</module>
+        <module>compensation-management</module>
+        <module>dou-management</module>
     </modules>
 </project>
