@@ -2,12 +2,15 @@ package com.flywolf.li.sales.dou.dto;
 
 import com.flywolf.li.framework.dto.Response;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class Dou extends Response {
     private static final long serialVersionUID = 1539677671153378673L;
 
