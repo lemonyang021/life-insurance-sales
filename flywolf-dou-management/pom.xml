@@ -10,11 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.flywolf.li.sales.dou</groupId>
-    <artifactId>flywolf-duo-management</artifactId>
+    <artifactId>flywolf-dou-management</artifactId>
     <packaging>pom</packaging>
 
     <modules>
         <module>flywolf-dou-controller</module>
+        <module>flywolf-dou-service</module>
+        <module>flywolf-dou-server</module>
     </modules>
 
     <dependencies>
