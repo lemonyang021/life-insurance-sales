@@ -31,6 +31,5 @@ public class ChannelServiceImpl implements ChannelService {
         channel.setChannelName("judy");
         channel.setCategoryCode("judy");
         channelRepository.save(channel);
-        int i=1/0;
     }
 }

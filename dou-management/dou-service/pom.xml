@@ -8,7 +8,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.flywolf.li.sales.dou.service</groupId>
     <artifactId>dou-service</artifactId>
     <dependencies>
         <dependency>

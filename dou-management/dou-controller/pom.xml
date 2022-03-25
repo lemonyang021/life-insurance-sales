@@ -11,7 +11,7 @@
     <artifactId>dou-controller</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.flywolf.li.sales.dou.service</groupId>
+            <groupId>com.flywolf.li.sales.dou</groupId>
             <artifactId>dou-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
