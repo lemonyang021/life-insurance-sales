@@ -17,9 +17,9 @@ import javax.servlet.http.HttpSession;
 
 @ComponentScan("com.flywolf.li")
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableDiscoveryClient //开启服务发现机制
 @EnableHystrix//开启熔断降级机制
-@EnableFeignClients
+@EnableFeignClients //开启远程服务调用
 @EnableCaching//开启缓存机制
 @Controller
 public class SalesConfigApp {
