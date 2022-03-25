@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: dou-management
+  profiles:
+    active: local #指定运行环境
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #nacos服务中心地址
+        namespace: local
+        group: dou
+      config:
+        server-addr: localhost:8848 #nacos配置中心地址
+        namespace: local
+        group: dou
+        file-extension: yaml
+        ext-config[0]:
+          data-id: logback-config.xml
+          group: dou
+          refresh: true
+        ext-config[1]:
+          data-id: springdoc-config.yaml
+          group: dou
+          refresh: true
+        ext-config[2]:
+          data-id: spring-config.yaml
+          group: dou
+          refresh: true
+        ext-config[3]:
+          data-id: server-config.yaml
+          group: dou
+          refresh: true

@@ -20,6 +20,7 @@
         <module>dou-dto</module>
         <module>dou-model</module>
         <module>dou-remote</module>
+        <module>dou-common</module>
     </modules>
 
     <dependencies>

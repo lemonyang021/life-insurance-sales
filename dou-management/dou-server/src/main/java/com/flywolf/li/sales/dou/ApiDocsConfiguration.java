@@ -1,4 +1,4 @@
-package com.flywolf.li.sales.channel;
+package com.flywolf.li.sales.dou;
 
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.models.Operation;
@@ -15,10 +15,10 @@ import org.springframework.web.method.HandlerMethod;
 public class ApiDocsConfiguration {
 
     @Bean
-    public GroupedOpenApi channelDocket() {
+    public GroupedOpenApi douDocket() {
         return GroupedOpenApi.builder()
-                .group("channel")
-                .pathsToMatch("/channel/**")
+                .group("dou")
+                .pathsToMatch("/dou/**")
                 .addOperationCustomizer(customGlobalHeaders())
                 .build();
     }

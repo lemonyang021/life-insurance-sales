@@ -7,7 +7,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
 
 @ComponentScan("com.flywolf.li")
 @SpringBootApplication
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Controller;
 @EnableHystrix//开启熔断降级机制
 @EnableFeignClients //开启远程服务调用
 @EnableCaching//开启缓存机制
-@Controller
 public class SalesApp {
     public static void main(String[] args) {
         SpringApplication.run(SalesApp.class, args);
