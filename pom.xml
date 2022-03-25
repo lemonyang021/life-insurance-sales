@@ -124,9 +124,11 @@
         </plugins>
     </build>-->
     <modules>
-        <module>flywolf-sales-foundation</module>
-        <module>flywolf-sales-config</module>
-        <module>flywolf-sales-offline</module>
-        <module>flywolf-sales-online</module>
+        <module>flywolf-foundation</module>
+        <module>flywolf-channel-management</module>
+        <module>flywolf-channel-dto</module>
+        <module>flywolf-license-management</module>
+        <module>flywolf-producer-management</module>
+        <module>flywolf-compensation-management</module>
     </modules>
 </project>

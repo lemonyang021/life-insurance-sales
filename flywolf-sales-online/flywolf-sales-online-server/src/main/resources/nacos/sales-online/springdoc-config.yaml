@@ -1,3 +1,0 @@
-springdoc:
-  api-docs:
-    enabled: true #默认为true开启
