@@ -2,7 +2,7 @@ package com.flywolf.li.sales.channel.controller;
 
 import com.flywolf.li.framework.dto.Result;
 import com.flywolf.li.framework.dto.ResultCodeEnum;
-import com.flywolf.li.sales.channel.service.ChannelConfigService;
+import com.flywolf.li.sales.channel.service.ChannelService;
 import com.flywolf.li.sales.channel.dto.RegisterChannelRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -14,13 +14,13 @@ import javax.annotation.Resource;
 
 @CrossOrigin
 @RestController
-@Tag(name = "渠道配置", description = "操作描述")
+@Tag(name = "渠道管理", description = "操作描述")
 @RequestMapping(value = "/channel")
 @Slf4j
-public class ChannelConfigController {
+public class ChannelController {
 
     @Resource
-    ChannelConfigService service;
+    ChannelService service;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @Operation(summary = "注册新渠道", description = "注册新渠道")

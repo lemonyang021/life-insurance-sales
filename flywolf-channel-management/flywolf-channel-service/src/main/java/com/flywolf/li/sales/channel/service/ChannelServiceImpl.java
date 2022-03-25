@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class ChannelConfigServiceImpl implements ChannelConfigService {
+public class ChannelServiceImpl implements ChannelService {
 
     @Resource
     ChannelRepository channelRepository;

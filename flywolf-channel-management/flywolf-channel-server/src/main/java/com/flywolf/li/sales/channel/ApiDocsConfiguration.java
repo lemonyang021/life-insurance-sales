@@ -12,13 +12,22 @@ import org.springframework.web.method.HandlerMethod;
 
 
 @Configuration
-public class SwaggerConfiguration {
+public class ApiDocsConfiguration {
 
     @Bean
     public GroupedOpenApi channelDocket() {
         return GroupedOpenApi.builder()
                 .group("channel")
                 .pathsToMatch("/channel/**")
+                .addOperationCustomizer(customGlobalHeaders())
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi douDocket() {
+        return GroupedOpenApi.builder()
+                .group("dou")
+                .pathsToMatch("/dou/**")
                 .addOperationCustomizer(customGlobalHeaders())
                 .build();
     }
