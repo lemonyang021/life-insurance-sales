@@ -14,6 +14,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>compensation-dto</module>
+        <module>compensation-model</module>
     </modules>
 
     <properties>

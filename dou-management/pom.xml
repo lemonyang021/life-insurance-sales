@@ -18,6 +18,8 @@
         <module>dou-service</module>
         <module>dou-server</module>
         <module>dou-dto</module>
+        <module>dou-model</module>
+        <module>dou-remote</module>
     </modules>
 
     <dependencies>
