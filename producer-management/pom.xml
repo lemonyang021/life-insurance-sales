@@ -3,16 +3,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>flywolf-sales-parent</artifactId>
+        <artifactId>sales-parent</artifactId>
         <groupId>com.flywolf.li.sales</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.flywolf.li.sales.producer</groupId>
-    <artifactId>flywolf-producer-management</artifactId>
+    <artifactId>producer-management</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>flywolf-producer-dto</module>
+        <module>producer-dto</module>
     </modules>
 
 
@@ -26,7 +26,7 @@
         </dependency>
         <dependency>
             <groupId>com.flywolf.li.sales</groupId>
-            <artifactId>flywolf-foundation</artifactId>
+            <artifactId>foundation</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

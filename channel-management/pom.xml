@@ -4,22 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.flywolf.li.sales</groupId>
-        <artifactId>flywolf-sales-parent</artifactId>
+        <artifactId>sales-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.flywolf.li.sales.channel</groupId>
-    <artifactId>flywolf-channel-management</artifactId>
+    <artifactId>channel-management</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>model</module>
-        <module>common</module>
-        <module>server</module>
-        <module>controller</module>
-        <module>service</module>
-        <module>remote</module>
-        <module>dto</module>
+        <module>channel-model</module>
+        <module>channel-common</module>
+        <module>channel-server</module>
+        <module>channel-controller</module>
+        <module>channel-service</module>
+        <module>channel-remote</module>
+        <module>channel-dto</module>
     </modules>
 
     <properties>
@@ -49,7 +49,7 @@
         </dependency>
         <dependency>
             <groupId>com.flywolf.li.sales</groupId>
-            <artifactId>flywolf-foundation</artifactId>
+            <artifactId>foundation</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

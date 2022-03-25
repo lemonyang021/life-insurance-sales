@@ -3,21 +3,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>flywolf-sales-parent</artifactId>
+        <artifactId>sales-parent</artifactId>
         <groupId>com.flywolf.li.sales</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.flywolf.li.sales.dou</groupId>
-    <artifactId>flywolf-dou-management</artifactId>
+    <artifactId>dou-management</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>flywolf-dou-controller</module>
-        <module>flywolf-dou-service</module>
-        <module>flywolf-dou-server</module>
-        <module>flywolf-dou-dto</module>
+        <module>dou-controller</module>
+        <module>dou-service</module>
+        <module>dou-server</module>
+        <module>dou-dto</module>
     </modules>
 
     <dependencies>
@@ -37,7 +37,7 @@
         </dependency>
         <dependency>
             <groupId>com.flywolf.li.sales</groupId>
-            <artifactId>flywolf-foundation</artifactId>
+            <artifactId>foundation</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
