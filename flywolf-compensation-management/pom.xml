@@ -12,6 +12,9 @@
     <artifactId>flywolf-compensation-management</artifactId>
     <groupId>com.flywolf.li.sales.compensation</groupId>
     <packaging>pom</packaging>
+    <modules>
+        <module>flywolf-compensation-dto</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

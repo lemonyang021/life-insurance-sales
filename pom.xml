@@ -130,9 +130,5 @@
         <module>flywolf-producer-management</module>
         <module>flywolf-compensation-management</module>
         <module>flywolf-dou-management</module>
-        <module>flywolf-dou-dto</module>
-        <module>flywolf-compensation-dto</module>
-        <module>flywolf-license-dto</module>
-        <module>flywolf-producer-dto</module>
     </modules>
 </project>

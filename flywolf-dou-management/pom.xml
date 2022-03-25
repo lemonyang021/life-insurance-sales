@@ -17,6 +17,7 @@
         <module>flywolf-dou-controller</module>
         <module>flywolf-dou-service</module>
         <module>flywolf-dou-server</module>
+        <module>flywolf-dou-dto</module>
     </modules>
 
     <dependencies>
@@ -25,6 +26,19 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.flywolf.li.sales</groupId>
+            <artifactId>flywolf-foundation</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
