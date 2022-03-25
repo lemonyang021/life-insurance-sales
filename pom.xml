@@ -126,7 +126,6 @@
     <modules>
         <module>flywolf-foundation</module>
         <module>flywolf-channel-management</module>
-        <module>flywolf-channel-dto</module>
         <module>flywolf-license-management</module>
         <module>flywolf-producer-management</module>
         <module>flywolf-compensation-management</module>

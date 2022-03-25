@@ -19,6 +19,7 @@
         <module>flywolf-channel-controller</module>
         <module>flywolf-channel-service</module>
         <module>flywolf-channel-remote</module>
+        <module>flywolf-channel-dto</module>
     </modules>
 
     <properties>
