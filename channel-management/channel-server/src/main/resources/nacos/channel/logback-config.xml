@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
     <!-- 在yaml配置添加logging.path: 配置文件路径-->
-    <springProperty scope="context" name="logging.path" source="logging.path" defaultValue="./logs" />
+    <springProperty scope="context" name="logging.path" source="logging.path" defaultValue="./logs/channel-management" />
     <!-- nacos名字不要改动，不然会造成启动报警告，Failed to rename context Context has been already given a name nacos
     原因：项目框架 集成logback 与nacos 自带的logback 冲突， nacos的logback 已经先于 项目启动-->
-    <contextName>nacos</contextName>
 	 <!-- 属性文件:在properties文件中找到对应的配置项 -->
-    <property name="FILE_NAME" value="sales-channel" />
+    <property name="FILE_NAME" value="channel-management" />
 	<property name="maxFileSize" value="3MB"/><!-- 单个日志文件大小 -->
 	<property name="maxHistory" value="30"/><!--保留最近X天的日志-->
 	<property name="totalSizeCap" value="1GB"/> <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
