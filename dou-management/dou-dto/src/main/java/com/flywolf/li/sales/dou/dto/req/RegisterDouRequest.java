@@ -1,5 +1,6 @@
-package com.flywolf.li.sales.dou.dto;
+package com.flywolf.li.sales.dou.dto.req;
 
+import com.flywolf.li.sales.dou.dto.base.Dou;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

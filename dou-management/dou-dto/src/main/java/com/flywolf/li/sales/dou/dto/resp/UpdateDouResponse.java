@@ -1,4 +1,4 @@
-package com.flywolf.li.sales.dou.dto;
+package com.flywolf.li.sales.dou.dto.resp;
 
 import com.flywolf.li.framework.dto.Response;
 import io.swagger.v3.oas.annotations.media.Schema;

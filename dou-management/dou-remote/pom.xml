@@ -11,5 +11,17 @@
 
     <artifactId>dou-remote</artifactId>
 
+    <dependencies>
+        <!--openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.flywolf.li.sales.dto</groupId>
+            <artifactId>channel-dto</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

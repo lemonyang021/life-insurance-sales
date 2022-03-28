@@ -1,17 +1,15 @@
-package com.flywolf.li.sales.dou.dto;
+package com.flywolf.li.sales.dou.dto.base;
 
-import com.flywolf.li.framework.dto.Response;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class Dou extends Response {
+public class Dou implements Serializable {
     private static final long serialVersionUID = 1539677671153378673L;
 
     @Schema(title = "分销组织名称", required = true)
@@ -40,6 +38,8 @@ public class Dou extends Response {
     private Date effectiveDate;
     @Schema(title = "终止时间", required = true)
     private Date endDate;
-    @Schema(title = "终止原因", required = true)
+    @Schema(title = "终止原因编号", required = true)
     private Integer endReason;
+    @Schema(title = "终止原因描述", required = true)
+    private String endReasonDesc;
 }

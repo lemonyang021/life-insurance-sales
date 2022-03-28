@@ -1,4 +1,4 @@
-package com.flywolf.li.sales.channel.dto;
+package com.flywolf.li.sales.channel.dto.req;
 
 import com.flywolf.li.framework.dto.Request;
 import io.swagger.v3.oas.annotations.media.Schema;

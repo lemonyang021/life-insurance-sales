@@ -1,4 +1,4 @@
-package com.flywolf.li.sales.dou.dto;
+package com.flywolf.li.sales.dou.dto.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

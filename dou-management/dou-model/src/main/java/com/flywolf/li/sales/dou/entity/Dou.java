@@ -12,7 +12,14 @@ import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "t_dou")
+@Table(name = "t_dou", uniqueConstraints = {
+        @UniqueConstraint(name = "uni_code", columnNames = {"code"})
+}, indexes = {
+        @Index(name = "idx_leader", columnList = "leader"),
+        @Index(name = "idx_end_reason", columnList = "end_reason"),
+        @Index(name = "idx_effective_date", columnList = "effective_date"),
+        @Index(name = "idx_end_date", columnList = "end_date")
+})
 @Data
 @DynamicUpdate
 @DynamicInsert
@@ -41,5 +48,15 @@ public class Dou extends BaseEntity implements Serializable {
     private Date endDate;
     @Column(name = "end_reason", nullable = true)
     private Integer endReason;
+
+
+    @ManyToOne(targetEntity = DouChannel.class)
+    @JoinColumn(name = "id", referencedColumnName = "dou_id")
+    private DouChannel douChannelMapping;
+
+    @ManyToOne(targetEntity = DouEndReason.class)
+    @JoinColumn(name = "end_reason", referencedColumnName = "id")
+    private DouEndReason douEndReason;
+
 
 }
