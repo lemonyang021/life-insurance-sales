@@ -1,8 +1,9 @@
-package com.flywolf.li.sales.channel.service;
+package com.flywolf.li.sales.channel.service.impl;
 
 import com.flywolf.li.framework.util.ConvertUtil;
 import com.flywolf.li.sales.channel.entity.Channel;
 import com.flywolf.li.sales.channel.repository.ChannelRepository;
+import com.flywolf.li.sales.channel.service.ChannelService;
 import com.flywolf.li.sales.channel.service.bo.ChannelBO;
 import org.springframework.stereotype.Service;
 

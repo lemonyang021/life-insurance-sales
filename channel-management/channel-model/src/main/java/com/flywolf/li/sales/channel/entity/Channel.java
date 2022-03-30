@@ -12,23 +12,26 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "t_channel")
+@Table(name = "t_channel", indexes = {
+        @Index(name = "idx_category_id", columnList = "category_id")
+})
 @DynamicUpdate
 @DynamicInsert
 public class Channel extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -2270158413421004264L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "channel_name", nullable = false)
     private String channelName;
 
-    @Column(name = "channel_code", nullable = false)
+    @Column(name = "channel_code", nullable = false, unique = true)
     private String channelCode;
 
-    @Column(name = "category_code",nullable = false)
-    private String categoryCode;
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = ChannelCategory.class)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private ChannelCategory channelCategory;
 
 }

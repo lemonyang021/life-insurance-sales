@@ -6,13 +6,8 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ChannelBO extends BaseBO {
-
+public class ChannelCategoryBO extends BaseBO {
     private Long id;
-
-    private String channelName;
-
-    private String channelCode;
-
-    private ChannelCategoryBO channelCategoryBO;
+    private String categoryCode;
+    private String categoryName;
 }

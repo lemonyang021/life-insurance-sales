@@ -6,10 +6,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
@@ -17,11 +14,16 @@ import java.io.Serializable;
 @Entity
 @DynamicUpdate
 @DynamicInsert
-@Table(name = "t_channel_category")
+@Table(name = "t_channel_category", uniqueConstraints = {
+        @UniqueConstraint(name = "uni_category_code", columnNames = {"category_code"})
+})
 public class ChannelCategory extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1708979070594182865L;
     @Id
-    @Column(name = "category_code", nullable = false,length = 200)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+    @Column(name = "category_code", unique = true, nullable = false)
     private String categoryCode;
 
     @Column(name = "category_name", nullable = false)
