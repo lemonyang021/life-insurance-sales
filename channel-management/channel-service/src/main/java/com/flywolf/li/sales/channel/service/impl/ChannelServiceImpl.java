@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * 渠道服务实现类
+ */
 @Service
 public class ChannelServiceImpl implements ChannelService {
 

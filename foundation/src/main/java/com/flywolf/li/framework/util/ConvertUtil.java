@@ -31,6 +31,14 @@ public class ConvertUtil {
         baseEntity.setUpdateTime(new Date());
     }
 
+    /**
+     * 转换对象
+     * @param v
+     * @param classT
+     * @param <T>
+     * @param <V>
+     * @return
+     */
     public static <T, V> T convert(V v, Class<T> classT) {
         T t = null;
         try {
