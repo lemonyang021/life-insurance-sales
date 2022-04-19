@@ -129,5 +129,6 @@
         <module>producer-management</module>
         <module>compensation-management</module>
         <module>dou-management</module>
+        <module>gateway</module>
     </modules>
 </project>

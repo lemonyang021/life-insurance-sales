@@ -1,5 +1,6 @@
 package com.flywolf.li.sales.channel.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flywolf.li.framework.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,8 +31,9 @@ public class Channel extends BaseEntity implements Serializable {
     @Column(name = "channel_code", nullable = false, unique = true)
     private String channelCode;
 
-    @OneToOne(cascade = CascadeType.ALL, targetEntity = ChannelCategory.class)
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "category_id")
+    @JsonIgnore
     private ChannelCategory channelCategory;
 
 }
