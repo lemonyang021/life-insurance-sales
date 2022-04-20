@@ -1,0 +1,4 @@
+server:
+  port: 7001
+logging:
+  config: http://${spring.cloud.nacos.config.server-addr}/nacos/v1/cs/configs?group=${spring.cloud.nacos.config.group}&tenant=${spring.cloud.nacos.config.namespace}&dataId=logback-config.xml

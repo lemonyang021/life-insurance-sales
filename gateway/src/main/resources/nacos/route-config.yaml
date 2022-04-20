@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: channel-management  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://channel-management # 从nacos中按照名称获取微服务,并遵循负载均衡策略
+          predicates:
+            - Path=/channel-management/channel/**
+        - id: dou-management  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://dou-management # 从nacos中按照名称获取微服务,并遵循负载均衡策略
+          predicates:
+            - Path=/dou-management/dou/**
