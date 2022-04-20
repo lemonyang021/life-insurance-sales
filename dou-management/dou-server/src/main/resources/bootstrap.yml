@@ -15,18 +15,24 @@ spring:
         group: dou
         file-extension: yaml
         ext-config[0]:
-          data-id: logback-config.xml
+          data-id: openfeign-config.yaml
           group: dou
           refresh: true
         ext-config[1]:
-          data-id: springdoc-config.yaml
+          data-id: logback-config.xml
           group: dou
           refresh: true
         ext-config[2]:
-          data-id: spring-config.yaml
+          data-id: springdoc-config.yaml
           group: dou
           refresh: true
         ext-config[3]:
+          data-id: spring-config.yaml
+          group: dou
+          refresh: true
+        ext-config[4]:
           data-id: server-config.yaml
           group: dou
           refresh: true
+
+
