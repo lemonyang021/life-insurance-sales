@@ -5,6 +5,8 @@ feign:
         connectTimeOut: 5000 #建立连接所用的时间，适用于网络状况正常的情况下，两端连接所需要的时间
         readTimeOut: 5000 #指建立连接后从服务端读取到可用资源所用的时间
         loggerLevel: FULL
+  hystrix:
+    enable: true #断路器打开
 logging:
   level:
     com:
