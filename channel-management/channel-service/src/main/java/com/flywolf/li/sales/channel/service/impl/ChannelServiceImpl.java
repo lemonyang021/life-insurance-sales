@@ -7,6 +7,7 @@ import com.flywolf.li.sales.channel.repository.ChannelRepository;
 import com.flywolf.li.sales.channel.service.ChannelService;
 import com.flywolf.li.sales.channel.service.bo.ChannelBO;
 import com.flywolf.li.sales.channel.service.bo.QueryBO;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import java.util.List;
  * 渠道服务实现类
  */
 @Service
+@Slf4j
 public class ChannelServiceImpl implements ChannelService {
 
     @Resource
@@ -27,8 +29,12 @@ public class ChannelServiceImpl implements ChannelService {
 
     @Override
     public Long register(ChannelBO bo) {
+        ChannelCategory channelCategory = ConvertUtil.convert(bo.getChannelCategoryBO(), ChannelCategory.class);
+        ConvertUtil.initInsertEntity(channelCategory);
         Channel channel = ConvertUtil.convert(bo, Channel.class);
         ConvertUtil.initInsertEntity(channel);
+        channel.setChannelCategory(channelCategory);
+        log.info("ChannelBO={},Channel={}", bo, channel);
         channelRepository.save(channel);
         return channel.getId();
     }
