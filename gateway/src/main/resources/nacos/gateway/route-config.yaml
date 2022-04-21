@@ -6,7 +6,34 @@ spring:
           uri: lb://channel-management # 从nacos中按照名称获取微服务,并遵循负载均衡策略
           predicates:
             - Path=/channel/**
+        - id: channel-openapi  #channel openapi路由定义，过滤掉url第一个前缀
+          uri: lb://channel-management
+          predicates:
+            - Path=/channel-openapi/**
+          filters:
+            - RewritePath=/channel-openapi/(?<path>.*),/$\{path}
         - id: dou-management  #路由的ID，没有固定规则但要求唯一，建议配合服务名
           uri: lb://dou-management # 从nacos中按照名称获取微服务,并遵循负载均衡策略
           predicates:
             - Path=/dou/**
+        - id: dou-openapi  ##dou openapi路由定义，过滤掉url第一个前缀
+          uri: lb://dou-management #从nacos中按照名称获取微服务,并遵循负载均衡策略
+          predicates:
+            - Path=/dou-openapi/**
+          filters:
+            - RewritePath=/dou-openapi/(?<path>.*),/$\{path}
+        - id: gateway-openapi. #gateway聚合所有服务的openapi到自身显示
+          uri: http://localhost:${server.port}
+          predicates:
+            - Path=/v3/api-docs/**
+          filters:
+            - RewritePath=/v3/api-docs/(?<path>.*),/$\{path}/v3/api-docs
+
+springdoc:
+  swagger-ui:
+    use-root-path: true
+    urls:
+      - name: channel
+        url: /v3/api-docs/channel-openapi
+      - name: dou
+        url: /v3/api-docs/dou-openapi
