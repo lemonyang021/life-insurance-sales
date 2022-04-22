@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Schema(title = "查询渠道请求对象")
 public class QueryChannelRequest extends Request {
     private static final long serialVersionUID = 8130245093754449423L;
 

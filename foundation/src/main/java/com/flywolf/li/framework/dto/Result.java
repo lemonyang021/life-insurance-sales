@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(title = "请求结果对象")
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = -4723887430773820881L;
     @Schema(title = "返回码")
