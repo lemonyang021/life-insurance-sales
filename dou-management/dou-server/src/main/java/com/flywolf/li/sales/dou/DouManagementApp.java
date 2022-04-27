@@ -14,8 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableHystrix//开启熔断降级机制
 @EnableFeignClients //开启远程服务调用
 @EnableCaching//开启缓存机制
-public class DouApp {
+public class DouManagementApp {
     public static void main(String[] args) {
-        SpringApplication.run(DouApp.class, args);
+        SpringApplication.run(DouManagementApp.class, args);
     }
 }
