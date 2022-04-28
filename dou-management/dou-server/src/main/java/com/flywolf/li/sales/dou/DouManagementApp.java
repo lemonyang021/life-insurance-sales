@@ -8,6 +8,9 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * @author flywolf
+ */
 @ComponentScan("com.flywolf.li")
 @SpringBootApplication
 @EnableDiscoveryClient //开启服务发现机制

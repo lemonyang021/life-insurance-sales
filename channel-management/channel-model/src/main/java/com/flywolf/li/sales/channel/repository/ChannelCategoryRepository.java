@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  */
 public interface ChannelCategoryRepository extends JpaRepository<ChannelCategory, Long>, JpaSpecificationExecutor<ChannelCategory> {
     /**
+     *
      * @param categoryCode
      * @return
      */

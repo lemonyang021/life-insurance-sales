@@ -16,19 +16,28 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public abstract class BaseEntity {
-    // Who created
+
+    /**
+     * Who created
+     */
     @Column(name = "INSERTED_BY")
     @Schema(hidden = true)
     protected Long insertedBy;
-    // Who updated at latest
+    /**
+     * Who updated at latest
+     */
     @Column(name = "UPDATED_BY")
     @Schema(hidden = true)
     protected Long updatedBy;
-    // When created at application time
+    /**
+     * When created at application time
+     */
     @Column(name = "INSERT_TIME")
     @Schema(hidden = true)
     protected Date insertTime;
-    // When updated at latest at application time
+    /**
+     * When updated at latest at application time
+     */
     @Column(name = "UPDATE_TIME")
     @Schema(hidden = true)
     protected Date updateTime;
