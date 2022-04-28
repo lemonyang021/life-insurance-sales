@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 渠道服务
+ * @author flywolf
  */
 public interface ChannelService {
 

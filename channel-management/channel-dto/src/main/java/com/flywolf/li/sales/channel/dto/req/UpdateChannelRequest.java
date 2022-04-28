@@ -8,6 +8,9 @@ import lombok.EqualsAndHashCode;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author flywolf
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Schema(title = "更新渠道请求对象")

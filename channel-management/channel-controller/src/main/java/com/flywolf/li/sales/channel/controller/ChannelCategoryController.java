@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
+/**
+ * @author flywolf
+ */
 @CrossOrigin
 @RestController
 @Tag(name = "渠道种类管理", description = "操作描述")

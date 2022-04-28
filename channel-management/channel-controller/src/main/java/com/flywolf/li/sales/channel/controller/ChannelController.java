@@ -23,11 +23,15 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+/**
+ * @author flywolf
+ */
 @CrossOrigin
 @RestController
 @Tag(name = "渠道管理", description = "操作描述")
 @RequestMapping(value = "/channel")
 @Slf4j
+
 public class ChannelController {
 
     @Resource
@@ -38,9 +42,9 @@ public class ChannelController {
     public @ResponseBody
     Result<Long> register(@RequestBody @Validated RegisterChannelRequest request) {
         log.info("register channel {}", request);
-        ChannelBO ChannelBO = ConvertUtil.convert(request, ChannelBO.class);
-        ChannelBO.setChannelCategoryBO(ConvertUtil.convert(request, ChannelCategoryBO.class));
-        Long channelId = service.register(ChannelBO);
+        ChannelBO channelBO = ConvertUtil.convert(request, ChannelBO.class);
+        channelBO.setChannelCategoryBO(ConvertUtil.convert(request, ChannelCategoryBO.class));
+        Long channelId = service.register(channelBO);
         return Result.success(channelId);
     }
 
@@ -66,7 +70,14 @@ public class ChannelController {
     public @ResponseBody
     Result<Page<QueryChannelResponse>> query(@RequestBody @Validated QueryChannelRequest request) {
         log.info("query channel {}", request);
-        return Result.success(Page.listToPage(ConvertUtil.convert(service.query(ConvertUtil.convert(request, QueryBO.class)), QueryChannelResponse.class)));
+        //转换请求对象为查询业务对象
+        QueryBO queryBO = ConvertUtil.convert(request, QueryBO.class);
+        //调用查询服务
+        List<ChannelBO> boList = service.query(queryBO);
+        //转换查询结果对象为返回对象
+        List<QueryChannelResponse> queryChannelResponseList = ConvertUtil.convert(boList, QueryChannelResponse.class);
+        //返回查询结果
+        return Result.success(Page.listToPage(queryChannelResponseList));
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
