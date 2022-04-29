@@ -28,6 +28,9 @@
             <column name="effective_date" type="datetime">
                 <constraints nullable="false"/>
             </column>
+            <column name="channel_id" type="BIGINT(19)">
+                <constraints nullable="true"/>
+            </column>
             <column name="end_date" type="datetime"/>
             <column name="end_reason" type="INT(10)"/>
             <column name="insert_time" type="datetime"/>

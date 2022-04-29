@@ -48,15 +48,6 @@ public class Dou extends BaseEntity implements Serializable {
     private Date endDate;
     @Column(name = "end_reason", nullable = true)
     private Integer endReason;
-
-
-    /*@ManyToOne(targetEntity = DouChannel.class)
-    @JoinColumn(name = "id", referencedColumnName = "dou_id")
-    private DouChannel douChannelMapping;
-
-    @ManyToOne(targetEntity = DouEndReason.class)
-    @JoinColumn(name = "end_reason", referencedColumnName = "id")
-    private DouEndReason douEndReason;*/
-
-
+    @Column(name = "channel_id", nullable = true)
+    private Long channelId;
 }
