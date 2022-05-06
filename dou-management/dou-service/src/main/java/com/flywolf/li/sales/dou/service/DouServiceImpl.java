@@ -47,8 +47,8 @@ public class DouServiceImpl implements DouService {
 
     @Override
     public DouBO findById(Long douid) {
-        //Dou dou = douRepository.findById(douid).get();
-        Result<ChannelResponse> result=channelRemoteService.get(15L);
+        Dou dou = douRepository.findById(douid).get();
+        Result<ChannelResponse> result=channelRemoteService.get(dou.getChannelId());
         log.info(result.getData().toString());
         return ConvertUtil.convert(new Dou(), DouBO.class);
     }
