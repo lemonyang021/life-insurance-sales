@@ -66,6 +66,7 @@ public class ChannelServiceImpl implements ChannelService {
          * 其中包括，CriteriaBuilder,CriteriaQuery
          * Root,Predicate对像；由于Specification是一个接口类型
          * 所以使用匿名内部类的方式进行实现这个接口，让它回调toPredicate方法
+         * test1
          */
         Specification<Channel> specification = new Specification<Channel>() {
             /*
