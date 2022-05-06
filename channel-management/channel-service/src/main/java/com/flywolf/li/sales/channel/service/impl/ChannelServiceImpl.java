@@ -73,6 +73,7 @@ public class ChannelServiceImpl implements ChannelService {
              * CriteriaQuery<?>封装了一个基本的查询 select* from对象名；
              * CriteriaBuilder创建查询，创建CriteriaQuery<?>对象
              */
+
             @Override
             public Predicate toPredicate(Root<Channel> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 // 设置多个查询条件
